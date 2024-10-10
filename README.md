@@ -2,7 +2,7 @@
 CS330 Final Project
 Team: William, Brayan, Nick, Spencer
 
-I'm Testing my Fork
+https://github.com/joshnh/Git-Commands
 
 MVP 
 -basic UI for: Entering a starting word/phrase, and guessing words/phrase based of a players drawing.
