@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmvbq16tk5oim"]
+
+[ext_resource type="Texture2D" uid="uid://c0ofh6wvr6d2h" path="res://icon.svg" id="1_3kuqx"]
+[ext_resource type="Script" path="res://Gamemodes/Normal/starting_word_prompt.gd" id="1_fimin"]
+
+[node name="StartingWordPrompt" type="Node"]
+script = ExtResource("1_fimin")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_3kuqx")
+stretch_mode = 2
+
+[node name="GameStuff" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="QuestionPrompt" type="LineEdit" parent="VBoxContainer/GameStuff"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "What will be drawn?"
+alignment = 1
+editable = false
+
+[node name="Timer" type="Label" parent="VBoxContainer/GameStuff"]
+layout_mode = 2
+
+[node name="UserInputs" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UserPrompt" type="LineEdit" parent="VBoxContainer/UserInputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Please give a description for others to draw."
+
+[node name="SubmitButton" type="Button" parent="VBoxContainer/UserInputs"]
+layout_mode = 2
+text = "Submit"
+
+[connection signal="pressed" from="VBoxContainer/UserInputs/SubmitButton" to="." method="_on_submit_button_pressed"]
