@@ -16,10 +16,11 @@ func _process(delta: float) -> void:
 
 func _on_submit_button_pressed() -> void:
 	var user_prompt = $VBoxContainer/HBoxContainer/UserPrompt
-	if user_prompt.text == "":
-		print("No text provided for the prompt.")
-	elif user_prompt.text == "$ForceTimerOut":
-		print("Emit a signal to cause a premature timeout.") # TODO: Read and complete the print statement.
-	else:
-		print(user_prompt.text)
+	#if user_prompt.text == "":
+	#	print("No text provided for the prompt.")
+	#elif user_prompt.text == "$ForceTimerOut":
+	#	print("Emit a signal to cause a premature timeout.") # TODO: Read and complete the print statement.
+	#else:
+		#print(user_prompt.text)
+	#print(user_prompt.text)
 	pass # Replace with function body.

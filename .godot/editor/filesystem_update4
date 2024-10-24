@@ -1,0 +1,4 @@
+res://world.tscn
+res://Gamemodes/Normal/drawing_canvas.tscn
+res://Gamemodes/Normal/starting_word_prompt.gd
+res://Gamemodes/Normal/starting_word_prompt.tscn
