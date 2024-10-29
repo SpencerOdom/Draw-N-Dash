@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="drawndash"
-run/main_scene="res://world.tscn"
+run/main_scene="res://Gamemodes/Normal/drawing_canvas.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+mouse_cursor/custom_image="res://Cursor_Images/pencil-cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(0, 20)
 
 [dotnet]
 
