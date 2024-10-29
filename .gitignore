@@ -1,0 +1,34 @@
+# Ignore the .import folder, which contains imported assets and is automatically generated
+.import/
+
+# Ignore Godot editor configuration files (user-specific and machine-specific)
+.editor_settings-3.tres
+.editor_settings-4.tres
+
+# Ignore system-specific files
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+# Temporary or backup files
+*.tmp
+*.swap
+*.bak
+*.old
+
+# Ignore imported asset metadata (e.g., icon.svg.import)
+*.import
+
+#ignore .gadot
+.gadot
+
+# Optional: Ignore miscellaneous notes, to-do lists, and temporary files
+TODO.txt
+notes.txt
+
+# Ignore compiled binaries and export directories
+/bin/
+
+# Ignore any other possible user or machine-specific settings
+*.godot_imported
+
+
