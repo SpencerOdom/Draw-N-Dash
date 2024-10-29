@@ -5,46 +5,27 @@
 [node name="DrawingCanvas" type="Node"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 1328.0
+offset_bottom = 763.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="DrawingPrompt" type="Label" parent="VBoxContainer/Header"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "ERROR_UNKNOWN_PROMOT"
-
-[node name="Timer" type="Timer" parent="VBoxContainer/Header"]
-
-[node name="Screen" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="PlayerList" type="VBoxContainer" parent="VBoxContainer/Screen"]
-layout_mode = 2
-
-[node name="Canas" type="Node2D" parent="VBoxContainer/Screen"]
+[node name="Canvas" type="Node2D" parent="."]
 script = ExtResource("1_hewgr")
 
-[node name="Line2D" type="Line2D" parent="VBoxContainer/Screen/Canas"]
+[node name="Line2D" type="Line2D" parent="Canvas"]
+default_color = Color(0, 0, 0, 1)
 
-[node name="RHS" type="VBoxContainer" parent="VBoxContainer/Screen"]
-layout_mode = 2
-
-[node name="ColorRowContainer" type="VBoxContainer" parent="VBoxContainer/Screen/RHS"]
-layout_mode = 2
-
-[node name="ColorColumn_1" type="HBoxContainer" parent="VBoxContainer/Screen/RHS/ColorRowContainer"]
-layout_mode = 2
-
-[node name="SubmitButton" type="Button" parent="VBoxContainer/Screen/RHS"]
-layout_mode = 2
-text = "Submit"
+[node name="Canvas Phrase" type="RichTextLabel" parent="Canvas"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 458.0
+offset_top = 8.0
+offset_right = 890.0
+offset_bottom = 89.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/bold_font_size = 55
+bbcode_enabled = true
+text = " [b]Draw a Donkey[/b] 
+"
+fit_content = true
+scroll_active = false
