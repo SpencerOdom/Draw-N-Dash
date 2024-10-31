@@ -19,7 +19,7 @@ Thumbs.db      # Windows
 *.import
 
 #ignore .gadot
-.gadot
+.godot
 
 # Optional: Ignore miscellaneous notes, to-do lists, and temporary files
 TODO.txt
