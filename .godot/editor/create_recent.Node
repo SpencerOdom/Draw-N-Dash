@@ -1,9 +1,11 @@
+QuickTextureButton
+TextureButton
+VBoxContainer
+HBoxContainer
 ColorRect
 Label
 Button
-HBoxContainer
 OptionButton
 LineEdit
-VBoxContainer
 CanvasGroup
 Node
