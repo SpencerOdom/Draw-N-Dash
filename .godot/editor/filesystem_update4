@@ -1,4 +1,4 @@
-res://world.tscn
 res://Gamemodes/Normal/drawing_canvas.tscn
-res://Gamemodes/Normal/starting_word_prompt.gd
-res://Gamemodes/Normal/starting_word_prompt.tscn
+res://Library/QuickTextureButton.gd
+res://world.tscn
+res://Gamemodes/Normal/canvas.gd
