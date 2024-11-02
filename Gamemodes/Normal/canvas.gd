@@ -1,27 +1,3 @@
-## This is canvas.gd
-#extends Node2D
-#
-#
-#@onready var _lines: Node2D = $Line2D
-#
-#var _pressed: bool = false
-#var _current_line: Line2D = null
-#
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_LEFT:
-			#_pressed = event.pressed
-			#
-			#if _pressed:
-				#_current_line = Line2D.new()
-				#_current_line.default_color = Color.BLACK
-				#_current_line.width = 12
-				#_lines.add_child(_current_line)
-				#_current_line.add_point(event.position)
-				#
-	#elif event is InputEventMouseMotion and _pressed:
-		#_current_line.add_point(event.position)
-
 # This is canvas.gd
 extends Node2D
 
@@ -34,8 +10,8 @@ var _current_line: Line2D = null
 var tool_mode: String = "pencil"  # Tracks the current tool, either "pencil" or "eraser"
 
 # Load custom cursor images
-var pencil_cursor_texture = preload("res://Cursor_Images/pencil-cursor.png")
-var eraser_cursor_texture = preload("res://Cursor_Images/eraser-cursor.png")
+var pencil_cursor_texture = preload("res://Cursor_Images/pencil_cursor.png")
+var eraser_cursor_texture = preload("res://Cursor_Images/eraser_cursor.png")
 
 # Define hotspot positions for custom cursors
 var pencil_cursor_hotspot = Vector2(0, 16)  # Adjust as needed for the active part of the pencil

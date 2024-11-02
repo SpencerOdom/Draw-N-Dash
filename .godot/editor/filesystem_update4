@@ -1,4 +1,3 @@
-res://Gamemodes/Normal/drawing_canvas.tscn
-res://Library/QuickTextureButton.gd
 res://world.tscn
 res://Gamemodes/Normal/canvas.gd
+res://Gamemodes/Normal/drawing_canvas.tscn
