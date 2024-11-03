@@ -97,3 +97,11 @@ func to_grayscale(texture: ImageTexture) -> Texture:
 	image.convert(Image.FORMAT_LA8)
 	image.convert(Image.FORMAT_RGBA8) # Not strictly necessary
 	return ImageTexture.create_from_image(image)
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_eraser_button_pressed() -> void:
+	pass # Replace with function body.
