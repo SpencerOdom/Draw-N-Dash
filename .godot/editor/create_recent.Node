@@ -1,3 +1,4 @@
+LineEdit
 VBoxContainer
 QuickTextureButton
 MarginContainer
@@ -10,5 +11,4 @@ TextureButton
 ColorRect
 Button
 OptionButton
-LineEdit
 CanvasGroup
