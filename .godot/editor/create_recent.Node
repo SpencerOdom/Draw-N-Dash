@@ -1,5 +1,8 @@
-LineEdit
 VBoxContainer
+Container
+ColorRect
+Node
+LineEdit
 QuickTextureButton
 MarginContainer
 TextureRect
@@ -8,7 +11,4 @@ HBoxContainer
 Label
 RichTextLabel
 TextureButton
-ColorRect
 Button
-OptionButton
-CanvasGroup
