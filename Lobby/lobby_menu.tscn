@@ -32,3 +32,7 @@ text = "Start"
 layout_mode = 2
 text = "Description.
 TODO: Gamemode Settings."
+
+[node name="Username" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Username"
