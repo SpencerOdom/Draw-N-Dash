@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c542tcfnbely7"]
+[gd_scene load_steps=2 format=3 uid="uid://c542tcfnbely7"]
+
+[ext_resource type="Script" path="res://Lobby/lobby_menu.gd" id="1_vrem6"]
 
 [node name="LobbyMenu" type="Node"]
+script = ExtResource("1_vrem6")
 
 [node name="BackgroundImage" type="CanvasGroup" parent="."]
 
@@ -9,6 +12,13 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="PlayersInLobby" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/PlayersInLobby"]
+layout_mode = 2
+color = Color(0.627635, 0.627635, 0.627635, 1)
+
+[node name="PlayerList" type="VBoxContainer" parent="HBoxContainer/PlayersInLobby"]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
