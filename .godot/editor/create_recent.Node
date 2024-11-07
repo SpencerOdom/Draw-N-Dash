@@ -1,3 +1,5 @@
+AudioStreamPlayer2D
+AudioStreamPlayer
 VBoxContainer
 Container
 ColorRect
@@ -10,5 +12,3 @@ Control
 HBoxContainer
 Label
 RichTextLabel
-TextureButton
-Button

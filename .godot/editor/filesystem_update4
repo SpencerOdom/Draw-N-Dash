@@ -4,4 +4,7 @@ res://Gamemodes/Normal/starting_word_prompt.tscn
 res://world.tscn
 res://MainMenu/main.tscn
 res://Old/world.tscn
+<<<<<<< HEAD
+=======
 res://Gamemodes/Normal/canvas.gd
+>>>>>>> refs/remotes/origin/main
