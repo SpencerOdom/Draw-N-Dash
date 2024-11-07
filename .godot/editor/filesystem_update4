@@ -1,2 +1,6 @@
+res://Gamemodes/Normal/drawing_canvas.tscn
+res://Lobby/lobby_menu.tscn
+res://Gamemodes/Normal/starting_word_prompt.tscn
 res://world.tscn
-res://world.gd
+res://MainMenu/main.tscn
+res://Old/world.tscn
