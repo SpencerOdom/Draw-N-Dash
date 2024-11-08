@@ -1,3 +1,6 @@
+Button
+MarginContainer
+QuickTextureButton
 AudioStreamPlayer2D
 AudioStreamPlayer
 VBoxContainer
@@ -5,8 +8,6 @@ Container
 ColorRect
 Node
 LineEdit
-QuickTextureButton
-MarginContainer
 TextureRect
 Control
 HBoxContainer
