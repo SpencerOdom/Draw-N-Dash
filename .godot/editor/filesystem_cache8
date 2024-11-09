@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731038525
+::res://::1731178917
 icon.svg::CompressedTexture2D::6556781495602651217::1730508133::1731034657::1::::<><>::
 notes.txt::TextFile::-1::1730508133::0::1::::<><>::
 README.md::TextFile::-1::1730508133::0::1::::<><>::
 TODO.txt::TextFile::-1::1730508133::0::1::::<><>::
 world.gd::GDScript::-1::1731034641::0::1::::<>Node<>::
 world.tscn::PackedScene::3328089932193953463::1731034641::0::1::::<><>::res://world.gd
-::res://Cursor_Images/::1731038512
+::res://Cursor_Images/::1731038525
 black-square.png::CompressedTexture2D::8630911226599037509::1730609836::1731034657::1::::<><>::
 blue-square.png::CompressedTexture2D::8628787227294237187::1730585439::1731034657::1::::<><>::
 eraserCursor.png::CompressedTexture2D::3371084401319114365::1731036050::1731036099::1::::<><>::
@@ -22,10 +22,10 @@ red-square.png::CompressedTexture2D::3733760408293955587::1730585375::1731034657
 Submit.png::CompressedTexture2D::269818860068203540::1731038512::1731038525::1::::<><>::
 yellow-square.png::CompressedTexture2D::7074543003053619780::1730585547::1731034657::1::::<><>::
 ::res://Gamemodes/::1731034641
-::res://Gamemodes/Normal/::1731038353
+::res://Gamemodes/Normal/::1731178808
 canvas.gd::GDScript::-1::1730594682::0::1::::<>Node2D<>::
 drawing_canvas.tscn::PackedScene::6424218898195443126::1731034641::0::1::::<><>::res://Gamemodes/Normal/canvas.gd<>res://Library/QuickTextureButton.gd
-drawing_canvas_old.tscn::PackedScene::6424218898195443126::1731038353::0::1::::<><>::res://Gamemodes/Normal/canvas.gd<>res://Library/QuickTextureButton.gd<>uid://by3u4mr67klyp::::res://Cursor_Images/pencilCursor.png<>uid://boa8jdkq6qfdt::::res://Cursor_Images/eraserCursor.png<>uid://d3x43bvxb47i::::res://Cursor_Images/Submit.png<>uid://du7432a7s4ygr::::res://Cursor_Images/black-square.png<>uid://du634n5col4p0::::res://Cursor_Images/blue-square.png<>uid://c717xpii8fsnk::::res://Cursor_Images/yellow-square.png<>uid://btgwquuxb26ux::::res://Cursor_Images/red-square.png<>uid://bb1isp7304uts::::res://Cursor_Images/green-square.png<>uid://dh66pigh0uukp::::res://Cursor_Images/purple-square.png<>uid://pk0t018m0u6k::::res://Cursor_Images/orange-square.png
+drawing_canvas_old.tscn::PackedScene::6424218898195443126::1731178808::0::1::::<><>::res://Gamemodes/Normal/canvas.gd<>res://Library/QuickTextureButton.gd<>uid://by3u4mr67klyp::::res://Cursor_Images/pencilCursor.png<>uid://boa8jdkq6qfdt::::res://Cursor_Images/eraserCursor.png<>uid://d3x43bvxb47i::::res://Cursor_Images/Submit.png<>uid://du7432a7s4ygr::::res://Cursor_Images/black-square.png<>uid://du634n5col4p0::::res://Cursor_Images/blue-square.png<>uid://c717xpii8fsnk::::res://Cursor_Images/yellow-square.png<>uid://btgwquuxb26ux::::res://Cursor_Images/red-square.png<>uid://bb1isp7304uts::::res://Cursor_Images/green-square.png<>uid://dh66pigh0uukp::::res://Cursor_Images/purple-square.png<>uid://pk0t018m0u6k::::res://Cursor_Images/orange-square.png
 normal_gamemode.tscn::PackedScene::7722361973659852657::1730508133::0::1::::<><>::
 starting_word_prompt.gd::GDScript::-1::1730508133::0::1::::<>Node<>::
 starting_word_prompt.tscn::PackedScene::8044970811640064516::1730508133::0::1::::<><>::uid://c0ofh6wvr6d2h::::res://icon.svg<>res://Gamemodes/Normal/starting_word_prompt.gd
