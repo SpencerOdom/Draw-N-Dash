@@ -40,6 +40,7 @@ func _on_eraser_button_pressed() -> void:
 func _set_current_color(color: Color) -> void:
 	current_color = color
 	tool_mode = "pencil"  # Ensure we're in pencil mode when selecting a color
+	Input.set_custom_mouse_cursor(pencil_cursor_texture, Input.CURSOR_ARROW, pencil_cursor_hotspot)
 
 # Main input function
 func _input(event: InputEvent) -> void:
