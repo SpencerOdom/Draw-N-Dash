@@ -1,10 +1,10 @@
+QuickTextureButton
 HBoxContainer
 Label
 MarginContainer
 ColorRect
 AudioStreamPlayer2D
 Button
-QuickTextureButton
 AudioStreamPlayer
 VBoxContainer
 Container
