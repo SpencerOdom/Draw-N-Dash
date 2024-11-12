@@ -1,7 +1,7 @@
+AudioStreamPlayer2D
 Button
 MarginContainer
 QuickTextureButton
-AudioStreamPlayer2D
 AudioStreamPlayer
 VBoxContainer
 Container
@@ -12,4 +12,3 @@ TextureRect
 Control
 HBoxContainer
 Label
-RichTextLabel

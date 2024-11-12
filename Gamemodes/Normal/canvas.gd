@@ -13,6 +13,8 @@ extends Node2D
 @onready var purple_button = get_node("/root/DrawingCanvas/Main_VBoxContainer/MainBody_HBoxContainer/ColorSelectVBoxContainer/PurpleTextureButton")
 @onready var orange_button = get_node("/root/DrawingCanvas/Main_VBoxContainer/MainBody_HBoxContainer/ColorSelectVBoxContainer/OrangeTextureButton")
 
+@onready var musicAudioStreamBG = $"AudioStreamPlayer2D"
+
 var _pressed: bool = false
 var _current_line: Line2D = null
 var tool_mode: String = "pencil"  # Tracks the current tool, either "pencil" or "eraser"
@@ -25,6 +27,9 @@ var eraser_cursor_texture = preload("res://Cursor_Images/eraser_cursor.png")
 # Define hotspot positions for custom cursors
 var pencil_cursor_hotspot = Vector2(0, 16)
 var eraser_cursor_hotspot = Vector2(0, 16)
+
+# Music Variable definition
+var BackgroundMusicOn = true
 
 # Called when the pencil button is pressed
 func _on_pencil_button_pressed() -> void:
@@ -78,3 +83,13 @@ func _ready():
 	green_button.connect("pressed", Callable(self, "_set_current_color").bind(Color(0, 1, 0)))
 	orange_button.connect("pressed", Callable(self, "_set_current_color").bind(Color(1, 0.5, 0)))
 	purple_button.connect("pressed", Callable(self, "_set_current_color").bind(Color(0.5, 0, 0.5)))
+
+func _process(delta):
+	update_music_stats()
+	
+func update_music_stats():
+	if BackgroundMusicOn:
+		if !musicAudioStreamBG.playing:
+			musicAudioStreamBG.play()
+	else:
+		musicAudioStreamBG.stop()
