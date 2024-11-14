@@ -45,3 +45,5 @@ TODO: Gamemode Settings."
 [node name="Username" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Enter Username"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Header/StartGameButton" to="." method="_on_start_game_button_pressed"]
