@@ -1,14 +1,14 @@
 QuickTextureButton
+LineEdit
+Control
+ColorRect
 HBoxContainer
 Label
 MarginContainer
-ColorRect
 AudioStreamPlayer2D
 Button
 AudioStreamPlayer
 VBoxContainer
 Container
 Node
-LineEdit
 TextureRect
-Control
