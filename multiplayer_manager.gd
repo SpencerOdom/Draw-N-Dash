@@ -2,7 +2,7 @@ extends Node
 
 @onready var multiplayer_peer : ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 
-const ADDRESS = "130.157.167.94"
+const ADDRESS = "130.157.167.146"
 const PORT: int = 80
 
 
@@ -29,3 +29,14 @@ func _on_scene_changed():
 				# Handle reconnection or other necessary steps
 				print("Handing reconnetion.\n", get_stack())
 				pass
+
+
+#@rpc("any_peer")
+#func client_code():
+#	print("Time Out.\n", get_stack())
+#	pass
+
+@rpc("any_peer")
+func client_connected(_id: int):
+	print(_id, " connected.\n", get_stack())
+	pass

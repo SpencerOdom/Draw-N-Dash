@@ -8,7 +8,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# TODO: Get player list.
 	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,3 +43,42 @@ func add_player_to_list(olayername: String, olayerID: int) -> void:
 	$HBoxContainer/PlayersInLobby/PlayerList.add_child(olayer)
 	
 	pass
+
+
+"""
+# These do not work. The servers active scene need to be the same with their peers.
+
+@rpc("any_peer")
+func lobby_server_code():
+	pass
+	
+@rpc("any_peer")
+func lobby_client_code():
+	print("lobby client code called.\n", get_stack())
+	pass
+"""
+
+
+# DONE: Change the order of operations.
+
+
+@rpc("any_peer")
+func client_start_game() -> void:
+	print("Client Start Game.\n", get_stack())
+	get_tree().change_scene_to_file("res://Gamemodes/Normal/starting_word_prompt.tscn")
+	pass
+
+
+@rpc("any_peer")
+func server_start_game() -> void:
+	pass
+
+# Start Game.
+func _on_start_game_button_pressed() -> void:
+	#rpc_id(1, "lobby_server_code")
+	#print("Starting Game.\n", get_stack())
+	
+	rpc_id(1, "server_start_game")
+	
+	#get_tree().change_scene_to_file("res://Gamemodes/Normal/starting_word_prompt.tscn")
+	pass # Replace with function body.
