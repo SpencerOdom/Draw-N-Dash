@@ -1,6 +1,5 @@
 extends Node
 
-<<<<<<< Updated upstream
 
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
@@ -24,7 +23,6 @@ func client_start_game() -> void:
 func server_start_game() -> void:
 	pass
 """
-=======
 # Flag to track if the timer has finished
 var timer_finished: bool = false
 
@@ -47,4 +45,3 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	# Set the flag to indicate the timer has finished
 	timer_finished = true
->>>>>>> Stashed changes
