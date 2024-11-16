@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731613748
+::res://::1731777041
 icon.svg::CompressedTexture2D::6556781495602651217::1731608633::1731613629::1::::<><>::
 multiplayer_manager.gd::GDScript::-1::1731610951::0::1::::<>Node<>::
 notes.txt::TextFile::-1::1731608633::0::1::::<><>::
@@ -38,10 +38,10 @@ QuickTextureButton.gd::GDScript::-1::1731608633::0::1::::QuickTextureButton<>Tex
 ::res://Lobby/::1731613729
 lobby_menu.gd::GDScript::-1::1731613465::0::1::::<>Node<>::
 lobby_menu.tscn::PackedScene::6940047033646684684::1731613465::0::1::::<><>::res://Lobby/lobby_menu.gd
-::res://MainMenu/::1731613740
+::res://MainMenu/::1731613760
 brandnewimage.jpg::CompressedTexture2D::6361497776038769419::1731613601::1731613629::1::::<><>::
 main.gd::GDScript::-1::1731613252::0::1::::<>Node<>::
-main.tscn::PackedScene::2980581286557684256::1731613678::0::1::::<><>::uid://cwvs66oj4yqxn::::res://MainMenu/brandnewimage.jpg<>res://MainMenu/main.gd<>res://Library/QuickTextureButton.gd<>uid://bcyjyuspib3od::::res://MainMenu/startbutton.jpg
+main.tscn::PackedScene::2980581286557684256::1731613760::0::1::::<><>::uid://cwvs66oj4yqxn::::res://MainMenu/brandnewimage.jpg<>res://MainMenu/main.gd<>res://Library/QuickTextureButton.gd<>uid://bcyjyuspib3od::::res://MainMenu/startbutton.jpg
 menu.jpg::CompressedTexture2D::5629908316854116332::1731608633::1731613630::1::::<><>::
 startbutton.jpg::CompressedTexture2D::2576933828020992695::1731608633::1731613629::1::::<><>::
 ::res://Music/::1731613630

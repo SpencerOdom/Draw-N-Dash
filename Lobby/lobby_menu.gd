@@ -9,16 +9,28 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# TODO: Get player list.
+	print("Lobby _ready.\n", get_stack())
+	rpc_id(1, "server_player_list", MultiplayerManager.get_self_id())
+	#print("Port is ", MultiplayerManager.PORT, "\n", get_stack()) # Works :D
 	pass # Replace with function body.
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
 
+@rpc("any_peer")
+func server_player_list(_peer_id: int) ->void:
+	pass
+
+@rpc("any_peer")
+func client_append_player_list(_ID: int, _tag: String) -> void:
+	print("client_append_player_list\n")
+	add_player_to_list(_ID, _tag)
+	pass
+
 # The player ID may be a string and not an int.
-func add_player_to_list(olayername: String, olayerID: int) -> void:
+func add_player_to_list(olayerID: int, olayername: String) -> void:
 	print("Adding a player to list.\n", get_stack())
 	
 	var olayer = HBoxContainer.new()
