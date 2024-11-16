@@ -2,16 +2,16 @@ extends Node
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+#func _ready() -> void:
+#	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$VBoxContainer/GameStuff/Timer.text = "%s" % roundf($Timer.time_left)
+#func _process(delta: float) -> void:
+	#$VBoxContainer/GameStuff/Timer.text = "%s" % roundf($Timer.time_left)
 	# The "%s" indecates a string. The % after the string is to replace the LHS (string) with the RHS value(s).
 	#if $Timer.time_left == 0: *submit signal*
-	pass
+#	pass
 
 
 func _on_submit_button_pressed() -> void:
