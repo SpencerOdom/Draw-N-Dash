@@ -1,15 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://c542tcfnbely7"]
+[gd_scene load_steps=4 format=3 uid="uid://c542tcfnbely7"]
 
 [ext_resource type="Script" path="res://Lobby/lobby_menu.gd" id="1_vrem6"]
+[ext_resource type="Texture2D" uid="uid://c0ofh6wvr6d2h" path="res://icon.svg" id="2_am8cf"]
+[ext_resource type="FontFile" uid="uid://um02cdk0oah3" path="res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RZI.otf" id="3_7rxno"]
 
 [node name="LobbyMenu" type="Node"]
 script = ExtResource("1_vrem6")
 
-[node name="BackgroundImage" type="CanvasGroup" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.529067, 0.529067, 0.529067, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="PlayersInLobby" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -21,7 +34,34 @@ color = Color(0.627635, 0.627635, 0.627635, 1)
 [node name="PlayerList" type="VBoxContainer" parent="HBoxContainer/PlayersInLobby"]
 layout_mode = 2
 
+[node name="Test" type="HBoxContainer" parent="HBoxContainer/PlayersInLobby/PlayerList"]
+layout_mode = 2
+
+[node name="Test" type="TextureRect" parent="HBoxContainer/PlayersInLobby/PlayerList/Test"]
+layout_mode = 2
+texture = ExtResource("2_am8cf")
+
+[node name="Test2" type="VBoxContainer" parent="HBoxContainer/PlayersInLobby/PlayerList/Test"]
+layout_mode = 2
+
+[node name="TestEdit" type="LineEdit" parent="HBoxContainer/PlayersInLobby/PlayerList/Test/Test2"]
+custom_minimum_size = Vector2(170, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7rxno")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Player1"
+alignment = 1
+
+[node name="TestEdit2" type="LineEdit" parent="HBoxContainer/PlayersInLobby/PlayerList/Test/Test2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7rxno")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "123456"
+alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(963, 0)
 layout_mode = 2
 
 [node name="Header" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
