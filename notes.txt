@@ -1,2 +1,10 @@
 We will be using port 8101 for our blue server.
 I finally got my name to be correct.
+
+
+Multiplayer scene changing:
+	https://forum.godotengine.org/t/switching-between-multiple-scenes-in-multiplayer-with-multiple-clients/71992/2
+	>> The users are suggesting that we have the server load all scenes, but the client(s) will only have one scene loaded at a time.
+	> I'm thinking of putting all of the rpc's into a global.
+	> Read through this again: https://godotengine.org/article/multiplayer-in-godot-4-0-scene-replication/
+.
