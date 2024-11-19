@@ -10,7 +10,6 @@ extends Node
 #func _process(delta: float) -> void:
 #	pass
 
-
 func _on_quick_texture_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	pass # Replace with function body.
