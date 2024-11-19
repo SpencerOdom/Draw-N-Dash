@@ -61,7 +61,7 @@ placeholder_text = "123456"
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(963, 0)
+custom_minimum_size = Vector2(968, 0)
 layout_mode = 2
 
 [node name="Header" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
@@ -77,10 +77,18 @@ popup/item_0/text = "Normal"
 layout_mode = 2
 text = "Start"
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="GameRules" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Description.
-TODO: Gamemode Settings."
+text = "Setup: Each player writes a word or phrase on the first scene (either chosen or provided by the game).
+
+Drawing Phase: Players read the word or phrase and use the provided tools to draw it.
+
+Guessing Phase: The sketchbooks are passed again. The next player looks at the drawing and writes down their guess 
+of what it represents.
+
+Repeat: The cycle of drawing and guessing continues until each player has contributed to every sketchbook.
+
+Reveal: Players review their drawing and guessing sequences, sharing how the original word evolved into the final guess."
 
 [node name="Username" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
