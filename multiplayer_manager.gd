@@ -3,7 +3,8 @@ extends Node
 @onready var multiplayer_peer : ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 
 
-const ADDRESS = "130.157.167.146"
+#const ADDRESS = "130.157.167.146"
+const ADDRESS = "130.157.167.94"
 const PORT: int = 80
 #const ADDRESS = "130.157.170.101"
 #const PORT: int = 8101
