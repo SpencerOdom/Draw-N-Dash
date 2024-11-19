@@ -14,7 +14,6 @@ func _ready() -> void:
 	#print("Port is ", MultiplayerManager.PORT, "\n", get_stack()) # Works :D
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
