@@ -17,11 +17,21 @@ func _ready() -> void:
 	
 	pass
 
+
+
+
+
+
+
 @rpc("any_peer")
 func client_start_timer(_time: float) -> void:
 	$Timer.wait_time = _time
 	$Timer.start()
 	pass
+
+
+
+
 
  #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -29,6 +39,13 @@ func _process(_delta: float) -> void:
 	# TODO: Remove this; we will be changing scenes when
 	if not timer_finished:
 		$TimeRemaining.text = "%d" % $Timer.time_left
+
+
+
+
+
+
+
 
 @rpc("any_peer")
 func submit_prompt() -> void:
