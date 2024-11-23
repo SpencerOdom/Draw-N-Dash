@@ -15,21 +15,26 @@ func _ready() -> void:
 	if !$SubmitButtonStartPhrase.is_connected("pressed", Callable(self, "_on_submit_button_pressed")):
 		button.connect("pressed", Callable(self, "_on_submit_button_pressed"))
 	
-	pass
-
-
-
-
-
-
-
-@rpc("any_peer")
-func client_start_timer(_time: float) -> void:
-	$Timer.wait_time = _time
+	$Timer.wait_time = MultiplayerManager.prompt_time
+	$Timer.one_shot = true
 	$Timer.start()
+	
 	pass
 
 
+
+func _on_tree_entered() -> void:
+	MultiplayerManager.submit_1.connect(staring_prompt_shot_prompt)
+	pass # Replace with function body.
+
+func _on_tree_exiting() -> void:
+	MultiplayerManager.submit_1.disconnect(staring_prompt_shot_prompt)
+	pass # Replace with function body.
+
+
+func staring_prompt_shot_prompt() -> void:
+	MultiplayerManager.send_prompt($UserPrompt.text)
+	pass
 
 
 
@@ -42,29 +47,12 @@ func _process(_delta: float) -> void:
 
 
 
-
-
-
-
-
-@rpc("any_peer")
-func submit_prompt() -> void:
-	rpc_id(1, "set_users_prompt", MultiplayerManager.get_self_id(), $UserPrompt.text)
-	pass
-
 func _on_timer_timeout() -> void:
 	# Set the flag to indicate the timer has finished
 	timer_finished = true
 
-@rpc("any_peer")
-func set_users_prompt(_id: int, _prompt: String) -> void:
-	pass
+
 
 func _on_submit_button_pressed() -> void:
 	print_debug("User entered: ", $UserPrompt.text)
-	rpc_id(1, "set_users_prompt", MultiplayerManager.get_self_id(), $UserPrompt.text)
-
-@rpc("any_peer")
-func client_draw_phase() -> void:
-	get_tree().change_scene_to_file("res://Gamemodes/Normal/drawing_canvas_old.tscn")
-	pass
+	MultiplayerManager.send_prompt($UserPrompt.text)

@@ -3,12 +3,18 @@ extends Node
 @onready var multiplayer_peer : ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 
 signal intstring_1(_i: int, _s: String)
+signal submit_1
 
 const ADDRESS = "130.157.167.146"
 #const ADDRESS = "130.157.167.94"
 const PORT: int = 80
 #const ADDRESS = "130.157.170.101"
 #const PORT: int = 8101
+
+
+# Change these?
+@export var prompt_time: float = 30.0
+@export var drawing_time: float = 60.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -69,6 +75,7 @@ func to_lobby() -> void:
 # Lobby
 # ************************************
 
+# More logic needed for our own timers.
 
 func get_player_list() -> void:
 	rpc_id(1, "send_player_list", multiplayer_peer.get_unique_id())
@@ -110,10 +117,34 @@ func server_start_game() -> void:
 # ************************************
 
 
+func send_prompt(txt: String):
+	rpc_id(1, "set_user_prompt",  multiplayer_peer.get_unique_id(), txt)
+	pass
+
+
+@rpc("any_peer")
+func submit_prompt() -> void:
+	emit_signal('submit_1')
+	pass
+
+@rpc("any_peer")
+func client_draw_phase() -> void:
+	print("Chaning to drawing scene.\n", get_stack())
+	get_tree().change_scene_to_file("res://Gamemodes/Normal/drawing_canvas_old.tscn")
+	pass
 
 
 
-# submit_prompt
+
+# Server
+
+@rpc("any_peer")
+func send_prompt_time():
+	pass
+
+@rpc("any_peer")
+func set_user_prompt(_id: int, _prompt: int) -> void:
+	pass
 
 
 
@@ -128,6 +159,30 @@ func server_start_game() -> void:
 
 
 
+
+
+
+
+# ************************************
+# End Phase
+# ************************************
+
+# TODO:
+
+func get_next_prompt() -> void:
+	pass
+
+
+func get_next_drawing() -> void:
+	pass
+
+
+func shot_prompt() -> void:
+	pass
+
+
+func shot_drawing() -> void:
+	pass
 
 
 
