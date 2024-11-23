@@ -80,7 +80,7 @@ func add_player_to_list(olayerID: int, olayername: String) -> void:
 	olayer_id.set_editable(false)
 	identity.add_child(olayer_id)
 	
-	$HBoxContainer/PlayersInLobby/PlayerList.add_child(olayer)
+	$HBoxContainer/PlayersInLobby/ScrollContainer/PlayerList.add_child(olayer)
 	
 	pass
 
