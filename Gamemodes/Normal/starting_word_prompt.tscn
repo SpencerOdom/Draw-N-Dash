@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmvbq16tk5oim"]
+[gd_scene load_steps=18 format=3 uid="uid://dmvbq16tk5oim"]
 
 [ext_resource type="Script" path="res://Gamemodes/Normal/starting_word_prompt.gd" id="1_fimin"]
 [ext_resource type="Texture2D" uid="uid://cbnu5js7beg6v" path="res://Mainmenuimage/enterphrasemenu.jpg" id="2_g52xu"]
-[ext_resource type="FontFile" uid="uid://ku7u2bq3vdmy" path="res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RZI.otf" id="2_kwq11"]
 [ext_resource type="Script" path="res://Library/QuickTextureButton.gd" id="3_mfqoe"]
 [ext_resource type="Texture2D" uid="uid://db17ojnvqf77i" path="res://Cursor_Images/Textbox.png" id="4_8m5l8"]
 [ext_resource type="Texture2D" uid="uid://boo8xc4d7rus7" path="res://Cursor_Images/SubmitButton.png" id="4_8s5xu"]
@@ -86,13 +85,6 @@ offset_bottom = 0.0399933
 grow_horizontal = 2
 theme_override_constants/margin_left = 8
 metadata/_edit_use_anchors_ = true
-
-[node name="InitialPrompt" type="Label" parent="MarginContainerTop"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.423529, 0.960784, 0.764706, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_kwq11")
-theme_override_font_sizes/font_size = 90
 
 [node name="UserPrompt" type="LineEdit" parent="."]
 offset_left = 487.0
