@@ -19,11 +19,11 @@ func _ready() -> void:
 		# Reconnect the signal
 		$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
-@rpc("any_peer")
-func client_start_timer(_time: float) -> void:
-	$Timer.wait_time = _time
-	$Timer.start()
-	pass
+#@rpc("any_peer")
+#func client_start_timer(_time: float) -> void:
+	#$Timer.wait_time = _time
+	#$Timer.start()
+	#pass
 
 func _process(_delta: float) -> void:
 	
@@ -36,6 +36,6 @@ func _on_timer_timeout() -> void:
 	# Set the flag to indicate the timer has finished
 	timer_finished = true
 
-@rpc("any_peer")
-func submit_canvas() -> void:
-	pass
+#@rpc("any_peer")
+#func submit_canvas() -> void:
+	#pass
