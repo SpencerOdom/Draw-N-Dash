@@ -4,6 +4,8 @@ extends Node
 
 signal intstring_1(_i: int, _s: String)
 signal submit_1
+signal shot_prompt_signal(txt: String)
+signal shot_drawing_signal(img: Node2D)
 
 const ADDRESS = "130.157.167.146"
 #const ADDRESS = "130.157.167.94"
@@ -135,7 +137,6 @@ func client_draw_phase() -> void:
 
 
 
-
 # Server
 
 @rpc("any_peer")
@@ -149,7 +150,9 @@ func set_user_prompt(_id: int, _prompt: int) -> void:
 
 
 
-
+# ************************************
+# Drawing Phase
+# ************************************
 
 
 
@@ -170,18 +173,22 @@ func set_user_prompt(_id: int, _prompt: int) -> void:
 # TODO:
 
 func get_next_prompt() -> void:
+	shot_prompt()
 	pass
 
 
 func get_next_drawing() -> void:
+	shot_drawing()
 	pass
 
 
 func shot_prompt() -> void:
+	emit_signal('shot_prompt_signal', "wiebfousbefobefo")
 	pass
 
 
 func shot_drawing() -> void:
+	emit_signal('shot_drawing_signal', load("res://Mainmenuimage/enterphrasemenu.jpg"))
 	pass
 
 
