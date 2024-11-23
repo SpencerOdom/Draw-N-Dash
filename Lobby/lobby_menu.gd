@@ -40,13 +40,43 @@ func add_player_to_list(olayerID: int, olayername: String) -> void:
 	var identity = VBoxContainer.new()
 	olayer.add_child(identity)
 	
+	# Load the font resource
+	var custom_font = FontFile.new()
+	custom_font.font_data = load("res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RZI.otf")
+	
+	#This is for the First Line Edit With Player Username
+	var layout_name = Vector2(170,60) #Variable with Set Values
 	var olayer_name = LineEdit.new()
 	olayer_name.text = olayername
+	olayer_name.alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	#Layout Changes
+	olayer_name.set_custom_minimum_size(layout_name)
+	
+	#Theme Overrides
+	olayer_name.add_theme_font_override("font", custom_font)
+	olayer_name.add_theme_font_size_override("font_size", 20)
+	#olayer_name.add_theme_color_override("theme_override_colors/font_color", Color(0, 1, 1, 1))
+	
 	olayer_name.set_editable(false)
 	identity.add_child(olayer_name)
 	
+	
+	#This is for the Second Line Edit with Player ID
+	var layout_id = Vector2(0,60)
 	var olayer_id = LineEdit.new()
 	olayer_id.text = str(olayerID)
+	olayer_id.alignment = HORIZONTAL_ALIGNMENT_CENTER
+	
+	#Layout Changes
+	olayer_id.set_custom_minimum_size(layout_id)
+	
+	#Theme Overrides
+	olayer_id.add_theme_font_override("font", custom_font)
+	olayer_id.add_theme_font_size_override("font_size", 20)
+	#olayer_id.add_theme_color_override("theme_override_colors/font_color", Color(0, 1, 1, 1))
+
+	
 	olayer_id.set_editable(false)
 	identity.add_child(olayer_id)
 	
