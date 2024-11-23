@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1732397712
+::res://::1732397837
 icon.svg::CompressedTexture2D::6556781495602651217::1732397682::1732397713::1::::<><>::
 multiplayer_manager.gd::GDScript::-1::1732397682::0::1::::<>Node<>::
 notes.txt::TextFile::-1::1732397682::0::1::::<><>::
@@ -7,7 +7,7 @@ README.md::TextFile::-1::1732397682::0::1::::<><>::
 TODO.txt::TextFile::-1::1732397682::0::1::::<><>::
 world.gd::GDScript::-1::1732397682::0::1::::<>Node<>::
 world.tscn::PackedScene::3328089932193953463::1732397682::0::1::::<><>::res://world.gd
-::res://Cursor_Images/::1732397682
+::res://Cursor_Images/::1732397716
 black-square.png::CompressedTexture2D::1174329850854573436::1732397682::1732397713::1::::<><>::
 blue-square.png::CompressedTexture2D::1663985295174797479::1732397682::1732397713::1::::<><>::
 eraserCursor.png::CompressedTexture2D::8951678035214841468::1732397682::1732397713::1::::<><>::
@@ -25,18 +25,18 @@ SubmitButton.png::CompressedTexture2D::7259911945944359262::1732397682::17323977
 Textbox.png::CompressedTexture2D::4288230947716479155::1732397682::1732397716::1::::<><>::
 yellow-square.png::CompressedTexture2D::768953753080144198::1732397682::1732397713::1::::<><>::
 ::res://Fonts/::1732397682
-::res://Fonts/Godot-Fontpack-master/::1732397682
+::res://Fonts/Godot-Fontpack-master/::1732397713
 icon.png::CompressedTexture2D::8486493344756884901::1732397682::1732397713::1::::<><>::
 README.md::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/::1732397713
 overview.PNG::CompressedTexture2D::2050300443595027221::1732397682::1732397713::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/architect-s-daughter/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/architect-s-daughter/::1732397713
 Architects Daughter SIL OFL Font License.txt::TextFile::-1::1732397682::0::1::::<><>::
 ArchitectsDaughter32.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/architect-s-daughter/ArchitectsDaughter.ttf
 ArchitectsDaughter.ttf::FontFile::7725610640645274053::1732397682::1732397713::1::::<><>::
 ::res://Fonts/Godot-Fontpack-master/fonts/cmu-typewriter/::1732397682
 Typewriter.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/cmu-typewriter/Typewriter/cmuntt.ttf
-::res://Fonts/Godot-Fontpack-master/fonts/cmu-typewriter/Typewriter/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/cmu-typewriter/Typewriter/::1732397713
 cmunit.ttf::FontFile::4170303562971562340::1732397682::1732397713::1::::<><>::
 cmuntb.ttf::FontFile::6734137531428368977::1732397682::1732397713::1::::<><>::
 cmuntt.ttf::FontFile::1002118472657628001::1732397682::1732397713::1::::<><>::
@@ -44,20 +44,20 @@ cmuntx.ttf::FontFile::7872197908176938213::1732397682::1732397713::1::::<><>::
 OFL-FAQ.txt::TextFile::-1::1732397682::0::1::::<><>::
 OFL.txt::TextFile::-1::1732397682::0::1::::<><>::
 README.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/connection/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/connection/::1732397713
 Connection.otf::FontFile::2590648828535222433::1732397682::1732397713::1::::<><>::
 ConnectionBold.otf::FontFile::8162590709818442673::1732397682::1732397713::1::::<><>::
 SIL Open Font License.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/connection_ii/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/connection_ii/::1732397713
 ConnectionII.otf::FontFile::5544576910061362824::1732397682::1732397713::1::::<><>::
 ConnectionII.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/connection_ii/ConnectionII.otf
 SIL Open Font License.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/droid-sans/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/droid-sans/::1732397713
 Apache License.txt::TextFile::-1::1732397682::0::1::::<><>::
 DroidSans-Bold.ttf::FontFile::2116284215742818210::1732397682::1732397713::1::::<><>::
 DroidSans.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/droid-sans/DroidSans.ttf
 DroidSans.ttf::FontFile::1498292931791174944::1732397682::1732397713::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/kirifont/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/kirifont/::1732397713
 KiriFont.otf::FontFile::3731541078581774289::1732397682::1732397713::1::::<><>::
 Kirifont.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/kirifont/KiriFont.otf
 KiriFont.ttf::FontFile::5943670297933220675::1732397682::1732397713::1::::<><>::
@@ -65,7 +65,7 @@ OFL.txt::TextFile::-1::1732397682::0::1::::<><>::
 ::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/::1732397682
 LinuxLibertine.tres::FontFile::-1::1732397682::0::1::::<><>::
 ::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/::1732397682
-::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/::1732397713
 Bugs.txt::TextFile::-1::1732397682::0::1::::<><>::
 ChangeLog.txt::TextFile::-1::1732397682::0::1::::<><>::
 GPL.txt::TextFile::-1::1732397682::0::1::::<><>::
@@ -82,12 +82,12 @@ LinLibertine_RZ.otf::FontFile::7811643098527796038::1732397682::1732397713::1:::
 LinLibertine_RZI.otf::FontFile::4083497525344315849::1732397682::1732397713::1::::<><>::
 OFL-1.1.txt::TextFile::-1::1732397682::0::1::::<><>::
 Readme-TEX.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/montreal/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/montreal/::1732397713
 Montreal-Bold.ttf::FontFile::8586066048966733748::1732397682::1732397713::1::::<><>::
 Montreal-Regular.ttf::FontFile::1587260473655129203::1732397682::1732397713::1::::<><>::
 Montreal.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/montreal/Montreal-Regular.ttf
 OFL.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/poco/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/poco/::1732397713
 CC BY 4.0.txt::TextFile::-1::1732397682::0::1::::<><>::
 Poco.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/poco/Poco.ttf
 Poco.ttf::FontFile::7330582805306503121::1732397682::1732397713::1::::<><>::
@@ -95,7 +95,7 @@ Poco.ttf::FontFile::7330582805306503121::1732397682::1732397713::1::::<><>::
 SourceCodePro.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/TTF/SourceCodePro-Regular.ttf
 ::res://Fonts/Godot-Fontpack-master/fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/::1732397682
 LICENSE.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/TTF/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/source-code-pro/source-code-pro-2.010R-ro-1.030R-it/TTF/::1732397713
 SourceCodePro-Black.ttf::FontFile::7171596494655685455::1732397682::1732397713::1::::<><>::
 SourceCodePro-BlackIt.ttf::FontFile::3720890282796021837::1732397682::1732397713::1::::<><>::
 SourceCodePro-Bold.ttf::FontFile::7399325519461904445::1732397682::1732397713::1::::<><>::
@@ -115,11 +115,11 @@ Xolonium.tres::FontFile::-1::1732397682::0::1::::<><>::res://fonts/xolonium/xolo
 ::res://Fonts/Godot-Fontpack-master/fonts/xolonium/xolonium-fonts-4.1/::1732397682
 FONTLOG.txt::TextFile::-1::1732397682::0::1::::<><>::
 LICENSE.txt::TextFile::-1::1732397682::0::1::::<><>::
-::res://Fonts/Godot-Fontpack-master/fonts/xolonium/xolonium-fonts-4.1/ttf/::1732397682
+::res://Fonts/Godot-Fontpack-master/fonts/xolonium/xolonium-fonts-4.1/ttf/::1732397713
 Xolonium-Bold.ttf::FontFile::5837397042118194338::1732397682::1732397713::1::::<><>::
 Xolonium-Regular.ttf::FontFile::1464910342192348365::1732397682::1732397713::1::::<><>::
 ::res://Gamemodes/::1732397682
-::res://Gamemodes/Normal/::1732397701
+::res://Gamemodes/Normal/::1732397786
 canvas.gd::GDScript::-1::1732397682::0::1::::<>Node2D<>::
 drawing_canvas.gd::GDScript::-1::1732397682::0::1::::<>Node<>::
 drawing_canvas.tscn::PackedScene::6424218898195443126::1732397682::0::1::::<><>::res://Gamemodes/Normal/canvas.gd<>res://Library/QuickTextureButton.gd
@@ -128,22 +128,22 @@ guessing_scene.gd::GDScript::-1::1732397682::0::1::::<>Control<>::
 guessing_Scene.tscn::PackedScene::3559346964691650588::1732397682::0::1::::<><>::res://Gamemodes/Normal/guessing_scene.gd<>res://Library/QuickTextureButton.gd<>uid://dp18b7b5qhwsm::::res://Cursor_Images/Textbox.png<>uid://catn6s07foqfh::::res://Cursor_Images/SubmitButton.png<>uid://bpl2v45f1mpp6::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RB.otf
 normal_gamemode.tscn::PackedScene::7722361973659852657::1732397682::0::1::::<><>::
 starting_word_prompt.gd::GDScript::-1::1732397682::0::1::::<>Node<>::
-starting_word_prompt.tscn::PackedScene::8044970811640064516::1732397571::0::1::::<><>::res://Gamemodes/Normal/starting_word_prompt.gd<>uid://cbnu5js7beg6v::::res://Mainmenuimage/enterphrasemenu.jpg<>uid://ku7u2bq3vdmy::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RZI.otf<>res://Library/QuickTextureButton.gd<>uid://db17ojnvqf77i::::res://Cursor_Images/Textbox.png<>uid://boo8xc4d7rus7::::res://Cursor_Images/SubmitButton.png<>uid://bqwfi6rvimiga::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RB.otf
+starting_word_prompt.tscn::PackedScene::8044970811640064516::1732397786::0::1::::<><>::res://Gamemodes/Normal/starting_word_prompt.gd<>uid://epfus7rgqul8::::res://Mainmenuimage/enterphrasemenu.jpg<>uid://bygcuwor20o46::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RZI.otf<>res://Library/QuickTextureButton.gd<>uid://b2disi80ardnf::::res://Cursor_Images/Textbox.png<>uid://dbo0xos7c6fuk::::res://Cursor_Images/SubmitButton.png<>uid://btkk05t83gr22::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RB.otf
 ::res://Library/::1732397682
 QuickTextureButton.gd::GDScript::-1::1732397682::0::1::::QuickTextureButton<>TextureButton<>::
 ::res://Lobby/::1732397682
 lobby_menu.gd::GDScript::-1::1732397682::0::1::::<>Node<>::
 lobby_menu.tscn::PackedScene::6940047033646684684::1732397682::0::1::::<><>::res://Lobby/lobby_menu.gd<>uid://c0ofh6wvr6d2h::::res://icon.svg<>uid://um02cdk0oah3::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RZI.otf<>uid://cfwsf2wgso8r8::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RBI.otf<>uid://cxtixp7qervkg::::res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RB.otf<>res://Library/QuickTextureButton.gd<>uid://dpfowiidt4rc2::::res://MainMenu/startbutton.jpg
-::res://MainMenu/::1732397682
+::res://MainMenu/::1732397713
 brandnewimage.jpg::CompressedTexture2D::6709307229358711536::1732397682::1732397713::1::::<><>::
 main.gd::GDScript::-1::1732397682::0::1::::<>Node<>::
 main.tscn::PackedScene::2980581286557684256::1732397682::0::1::::<><>::res://MainMenu/main.gd<>uid://r2hapwxvfd2m::::res://MainMenu/brandnewimage.jpg<>res://Library/QuickTextureButton.gd<>uid://dc7aje1ps8a4k::::res://MainMenu/startbutton.jpg<>uid://dp18b7b5qhwsm::::res://Cursor_Images/Textbox.png
 menu.jpg::CompressedTexture2D::977464698817816742::1732397682::1732397713::1::::<><>::
 startbutton.jpg::CompressedTexture2D::755616586744446086::1732397682::1732397713::1::::<><>::
-::res://Mainmenuimage/::1732397682
+::res://Mainmenuimage/::1732397713
 enterphrasemenu.jpg::CompressedTexture2D::312061337340072935::1732397682::1732397713::1::::<><>::
 menuupdate.jpg::CompressedTexture2D::5086893224954550846::1732397682::1732397713::1::::<><>::
-::res://Music/::1732397682
+::res://Music/::1732397716
 DrawScreenMusic.mp3::AudioStreamMP3::6621602529113421400::1732397682::1732397713::1::::<><>::
 TimerEndingSound.wav::AudioStreamWAV::5678849428783228031::1732397682::1732397716::1::::<><>::
 TitleScreenMusic.mp3::AudioStreamMP3::6239677052608569915::1732397682::1732397713::1::::<><>::
