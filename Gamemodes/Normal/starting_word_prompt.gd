@@ -24,12 +24,17 @@ func _ready() -> void:
 
 
 func _on_tree_entered() -> void:
-	MultiplayerManager.submit_1.connect(MultiplayerManager.send_prompt($UserPrompt.text))
+	MultiplayerManager.submit_1.connect(staring_prompt_shot_prompt)
 	pass # Replace with function body.
 
 func _on_tree_exiting() -> void:
-	MultiplayerManager.submit_1.disconnect(MultiplayerManager.send_prompt)
+	MultiplayerManager.submit_1.disconnect(staring_prompt_shot_prompt)
 	pass # Replace with function body.
+
+
+func staring_prompt_shot_prompt() -> void:
+	MultiplayerManager.send_prompt($UserPrompt.text)
+	pass
 
 
 
