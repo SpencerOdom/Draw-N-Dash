@@ -2,15 +2,23 @@ extends Node
 
 # TODO: Make the dissconnected players dissapear
 
-#signal connect
-#signal dissconnect
+
+func _on_tree_entered() -> void:
+	MultiplayerManager.intstring_1.connect(add_player_to_list)
+	pass # Replace with function body.
+
+func _on_tree_exiting() -> void:
+	MultiplayerManager.intstring_1.disconnect(add_player_to_list)
+	pass # Replace with function body.
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# TODO: Get player list.
 	print("Lobby _ready.\n", get_stack())
-	rpc_id(1, "server_player_list", MultiplayerManager.get_self_id())
+	
+	# Get player list.
+	MultiplayerManager.get_player_list()
+	
 	#print("Port is ", MultiplayerManager.PORT, "\n", get_stack()) # Works :D
 	pass # Replace with function body.
 
@@ -18,15 +26,6 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 #	pass
 
-@rpc("any_peer")
-func server_player_list(_peer_id: int) ->void:
-	pass
-
-@rpc("any_peer")
-func client_append_player_list(_ID: int, _tag: String) -> void:
-	print("client_append_player_list\n")
-	add_player_to_list(_ID, _tag)
-	pass
 
 # The player ID may be a string and not an int.
 func add_player_to_list(olayerID: int, olayername: String) -> void:
@@ -56,21 +55,16 @@ func add_player_to_list(olayerID: int, olayername: String) -> void:
 	pass
 
 
-"""
-# These do not work. The servers active scene need to be the same with their peers.
+func _on_start_button_pressed() -> void:
+	MultiplayerManager.call_server_to_start_game()
+	pass # Replace with function body.
 
-@rpc("any_peer")
-func lobby_server_code():
-	pass
-	
-@rpc("any_peer")
-func lobby_client_code():
-	print("lobby client code called.\n", get_stack())
-	pass
-"""
+
 
 
 # DONE: Change the order of operations.
+
+"""
 
 
 @rpc("any_peer")
@@ -93,3 +87,29 @@ func _on_start_game_button_pressed() -> void:
 	
 	#get_tree().change_scene_to_file("res://Gamemodes/Normal/starting_word_prompt.tscn")
 	pass # Replace with function body.
+"""
+
+
+
+
+
+
+
+
+
+
+
+# Ignore
+
+"""
+# These do not work. The servers active scene need to be the same with their peers.
+
+@rpc("any_peer")
+func lobby_server_code():
+	pass
+	
+@rpc("any_peer")
+func lobby_client_code():
+	print("lobby client code called.\n", get_stack())
+	pass
+"""
