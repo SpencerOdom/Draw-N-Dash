@@ -1,14 +1,15 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	pass # Replace with function body.
+func _on_tree_entered() -> void:
+	MultiplayerManager.submit_node2d.connect(drawing_phase_shot_image)
+	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _on_tree_exiting() -> void:
+	MultiplayerManager.submit_node2d.disconnect(drawing_phase_shot_image)
+	pass # Replace with function body.
+
 
 # Flag to track if the timer has finished
 var timer_finished: bool = false
@@ -18,12 +19,14 @@ func _ready() -> void:
 	if !$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.is_connected("timeout", Callable(self, "_on_timer_timeout")):
 		# Reconnect the signal
 		$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	
+	$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.wait_time = MultiplayerManager.drawing_time
+	$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.start()
+	
+	pass
 
-#@rpc("any_peer")
-#func client_start_timer(_time: float) -> void:
-	#$Timer.wait_time = _time
-	#$Timer.start()
-	#pass
+
+
 
 func _process(_delta: float) -> void:
 	
@@ -36,6 +39,9 @@ func _on_timer_timeout() -> void:
 	# Set the flag to indicate the timer has finished
 	timer_finished = true
 
-#@rpc("any_peer")
-#func submit_canvas() -> void:
-	#pass
+
+
+
+func drawing_phase_shot_image() -> void:
+	MultiplayerManager.send_drawing($Canvas.get_image())
+	pass

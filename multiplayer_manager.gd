@@ -3,7 +3,8 @@ extends Node
 @onready var multiplayer_peer : ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 
 signal intstring_1(_i: int, _s: String)
-signal submit_1
+signal submit_string
+signal submit_node2d
 signal shot_prompt_signal(txt: String)
 signal shot_drawing_signal(img: Node2D)
 
@@ -126,7 +127,7 @@ func send_prompt(txt: String):
 
 @rpc("any_peer")
 func submit_prompt() -> void:
-	emit_signal('submit_1')
+	emit_signal('submit_string')
 	pass
 
 @rpc("any_peer")
@@ -140,10 +141,6 @@ func client_draw_phase() -> void:
 # Server
 
 @rpc("any_peer")
-func send_prompt_time():
-	pass
-
-@rpc("any_peer")
 func set_user_prompt(_id: int, _prompt: int) -> void:
 	pass
 
@@ -155,8 +152,28 @@ func set_user_prompt(_id: int, _prompt: int) -> void:
 # ************************************
 
 
+func send_drawing(image: Node2D) -> void:
+	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), image)
+	pass
 
 
+@rpc("any_peer")
+func submit_drawing() -> void:
+	emit_signal('submit_drawing')
+	pass
+
+@rpc("any_peer")
+func client_prompt_phase() -> void:
+	print("Chaing to prompt phase.\n", get_stack())
+	get_tree().change_scene_to_file("res://Gamemodes/Normal/guessing_Scene.tscn")
+	pass
+
+
+# Server
+
+@rpc("any_peer")
+func set_user_drawing(_id: int, _img: Node2D) -> void:
+	pass
 
 
 
@@ -190,10 +207,12 @@ func shot_prompt() -> void:
 
 
 func shot_drawing() -> void:
-	emit_signal('shot_drawing_signal', load("res://Mainmenuimage/enterphrasemenu.jpg"))
+	var img: Node2D = $Canvas/Line2D
+	emit_signal('shot_drawing_signal', img)
 	pass
 
 
 
 
 # hi
+#
