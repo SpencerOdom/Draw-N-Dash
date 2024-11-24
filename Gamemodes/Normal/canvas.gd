@@ -97,3 +97,9 @@ func update_music_stats():
 
 func get_image() -> Node2D:
 	return _lines
+
+
+func _on_clear_button_pressed() -> void:
+	for child in _lines.get_children():
+		_lines.remove_child(child)
+		child.queue_free()  # Properly deletes the Line2D node

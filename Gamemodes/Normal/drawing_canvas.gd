@@ -3,11 +3,13 @@ extends Node
 
 func _on_tree_entered() -> void:
 	MultiplayerManager.submit_node2d.connect(drawing_phase_shot_image)
+	MultiplayerManager.set_prompt_signal.connect(drawing_phase_set_prompt)
 	pass # Replace with function body.
 
 
 func _on_tree_exiting() -> void:
 	MultiplayerManager.submit_node2d.disconnect(drawing_phase_shot_image)
+	MultiplayerManager.set_prompt_signal.disconnect(drawing_phase_set_prompt)
 	pass # Replace with function body.
 
 
@@ -45,3 +47,15 @@ func _on_timer_timeout() -> void:
 func drawing_phase_shot_image() -> void:
 	MultiplayerManager.send_drawing($Canvas.get_image())
 	pass
+
+
+func drawing_phase_set_prompt(_txt: String) -> void:
+	print("Setting Drawing Canvas prompt to: ", _txt)
+	$Main_VBoxContainer/Phrase_MarginContainer/DrawingLabel.set_text(_txt)
+	pass
+
+
+func _on_submit_button_pressed() -> void:
+	print("Our item is of type: ", typeof($Canvas.get_image()))
+	MultiplayerManager.send_drawing($Canvas.get_image())
+	pass # Replace with function body.

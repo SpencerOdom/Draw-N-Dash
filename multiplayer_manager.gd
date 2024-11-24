@@ -3,10 +3,15 @@ extends Node
 @onready var multiplayer_peer : ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 
 signal intstring_1(_i: int, _s: String)
+
 signal submit_string
 signal submit_node2d
+
 signal shot_prompt_signal(txt: String)
 signal shot_drawing_signal(img: Node2D)
+
+signal set_prompt_signal(_txt: String)
+signal set_drawing_signal(_img: Node2D)
 
 const ADDRESS = "130.157.167.146"
 #const ADDRESS = "130.157.167.94"
@@ -25,9 +30,9 @@ func _ready() -> void:
 		#get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 		print("MultiplayerMangager _ready func called.\n", get_stack())
 		if multiplayer_peer.get_connection_status() == 0:
-				print("Creating a connection.\n", get_stack())
-				multiplayer_peer.create_client(ADDRESS, PORT)
-				multiplayer.multiplayer_peer = multiplayer_peer
+			print("Creating a connection.\n", get_stack())
+			multiplayer_peer.create_client(ADDRESS, PORT)
+			multiplayer.multiplayer_peer = multiplayer_peer
 		pass # Replace with function body.
 
 
@@ -48,11 +53,6 @@ func _on_scene_changed():
 				pass
 
 
-#@rpc("any_peer")
-#func client_code():
-#	print("Time Out.\n", get_stack())
-#	pass
-
 @rpc("any_peer")
 func client_connected(_id: int):
 	print(_id, " connected.\n", get_stack())
@@ -68,7 +68,6 @@ func client_connected(_id: int):
 
 
 func to_lobby() -> void:
-	# TODO: Connection should go here.
 	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	pass
 
@@ -101,7 +100,7 @@ func client_start_game() -> void:
 	print("Starting Game.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/starting_word_prompt.tscn")
 	pass
-
+ 
 # Server
 
 @rpc("any_peer")
@@ -116,7 +115,7 @@ func server_start_game() -> void:
 
 
 # ************************************
-# Starting Guessing phase
+# Prompt Phase
 # ************************************
 
 
@@ -130,10 +129,14 @@ func submit_prompt() -> void:
 	emit_signal('submit_string')
 	pass
 
+
 @rpc("any_peer")
-func client_draw_phase() -> void:
+func client_draw_phase(_text: String) -> void:
 	print("Chaning to drawing scene.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/drawing_canvas_old.tscn")
+	await get_tree().create_timer(1).timeout
+	print("wergubbuifqbuofa")
+	emit_signal('set_prompt_signal', _text)
 	pass
 
 
@@ -152,8 +155,9 @@ func set_user_prompt(_id: int, _prompt: int) -> void:
 # ************************************
 
 
-func send_drawing(image: Node2D) -> void:
-	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), image)
+func send_drawing(_img: Node2D) -> void:
+	print(typeof(_img))
+	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), _img as Node2D)
 	pass
 
 
@@ -163,24 +167,18 @@ func submit_drawing() -> void:
 	pass
 
 @rpc("any_peer")
-func client_prompt_phase() -> void:
+func client_prompt_phase(_img: Node2D) -> void:
 	print("Chaing to prompt phase.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/guessing_Scene.tscn")
+	emit_signal('set_drawing_signal', _img as Node2D)
 	pass
 
 
 # Server
 
 @rpc("any_peer")
-func set_user_drawing(_id: int, _img: Node2D) -> void:
+func set_user_drawing(_id: int, _img: Object) -> void:
 	pass
-
-
-
-
-# ************************************
-# Prompt Phase
-# ************************************
 
 
 
@@ -215,4 +213,4 @@ func shot_drawing() -> void:
 
 
 # hi
-#
+# ***
