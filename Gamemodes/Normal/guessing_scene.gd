@@ -6,6 +6,17 @@ extends Control
 # Flag to track if the timer has finished
 var timer_finished: bool = false
 
+
+func _on_tree_entered() -> void:
+	MultiplayerManager.submit_string.connect(guessing_scene_send_prompt)
+	pass # Replace with function body.
+
+
+func _on_tree_exiting() -> void:
+	MultiplayerManager.submit_string.disconnect(guessing_scene_send_prompt)
+	pass # Replace with function body.
+
+
 func _ready():
 	#$Timer.start()
 	# Disconnect the signal if it's already connected
@@ -15,12 +26,11 @@ func _ready():
 		# Reconnect the signal
 		$Timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 		button.connect("pressed", Callable(self, "_on_quick_texture_button_pressed"))
-
-@rpc("any_peer")
-func client_start_timer(_time: float) -> void:
-	$Timer.wait_time = _time
+		
+	$Timer.wait_time = MultiplayerManager.prompt_time
 	$Timer.start()
-	pass
+
+
 
 func _process(_delta: float) -> void:
 	# Only update the label if the timer is running
@@ -28,19 +38,23 @@ func _process(_delta: float) -> void:
 	if not timer_finished:
 		$TimeRemaining.text = "%d" % $Timer.time_left
 
+
+
 func _on_quick_texture_button_pressed() -> void:
-	var user_text = line_edit.text
-	print_debug("User entered: ", user_text)
-	# Add your custom handling here (e.g., pass the text to another part of your game)
+	print_debug("User entered: ", $LineEdit.text)
+	MultiplayerManager.send_prompt($LineEdit.text)
 	# TODO: Submit prompt
 
-@rpc("any_peer")
-func submit_prompt() -> void:
-	rpc_id(1, "set_user_prompt", MultiplayerManager.get_self_id(), $LineEdit.text)
-	pass
+
 
 func _on_timer_timeout() -> void:
 	# Set the flag to indicate the timer has finished
 	timer_finished = true
 
 # TODO: next_phase
+
+
+
+func guessing_scene_send_prompt() -> void:
+	MultiplayerManager.send_prompt($LineEdit.text)
+	pass
