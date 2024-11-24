@@ -41,6 +41,9 @@ func _on_eraser_button_pressed() -> void:
 	tool_mode = "eraser"
 	Input.set_custom_mouse_cursor(eraser_cursor_texture, Input.CURSOR_ARROW, eraser_cursor_hotspot)
 
+
+	
+	
 # Called when a color button is pressed
 func _set_current_color(color: Color) -> void:
 	current_color = color
@@ -97,3 +100,9 @@ func update_music_stats():
 
 func get_image() -> Node2D:
 	return _lines
+
+
+#func _on_clear_button_pressed() -> void:
+	#for child in _lines.get_children():
+		#_lines.remove_child(child)
+		#child.queue_free()  # Properly deletes the Line2D node
