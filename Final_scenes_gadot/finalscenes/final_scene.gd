@@ -5,6 +5,8 @@ var display_image_path: String = "res://Mainmenuimage/menuupdate.jpg"
 var desired_size: Vector2 = Vector2(500, 500)  # Desired width and height in pixels
 var label_text: String = "Image has been updated!"  # The text to display in the Label
 
+var switch = true
+
 
 func _ready():
 	# Connect the button's pressed signal
@@ -14,26 +16,32 @@ func _ready():
 
 
 func _on_quick_texture_button_pressed() -> void:
-	var sprite = $Sprite
-	var label = $Label
 	
-	
-	
-	
-	
-	label.text = label_text
+	if(switch):
+		MultiplayerManager.get_next_prompt()
+		switch = false
+	else:	
+		MultiplayerManager.get_next_drawing()
+		switch = true
+		
 
-	# Ensure display_image_path is set
-	if display_image_path != "":
-		var texture = load(display_image_path)
-		if texture:
-			# Apply the texture to the Sprite
-			sprite.texture = texture
 
-			# Calculate and apply the scale for the desired size
-			var texture_size = sprite.texture.get_size()
-			sprite.scale = desired_size / texture_size
-		else:
-			print("Failed to load texture: ", display_image_path)
-
+func _on_tree_entered() -> void:
+	MultiplayerManager.shot_prompt_signal.connect(display_prompt)
+	MultiplayerManager.shot_drawing_signal.connect(display_drawing)
 	
+func display_prompt(txt: String) -> void:
+	var parent_node = $ScrollContainer/VBoxContainer
+	# Create a new Label node
+	var label = Label.new()
+	label.text = txt
+	parent_node.add_child(label)
+	
+
+func display_drawing(img: Node2D) -> void:
+	var parent_node = $ScrollContainer/VBoxContainer
+	parent_node.add_child(img)  # Add the image (now referencing img) to the scene
+	
+func _on_tree_exiting() -> void:
+	MultiplayerManager.shot_prompt_signal.disconnect(display_prompt)
+	MultiplayerManager.shot_drawing_signal.disconnect(display_drawing)
