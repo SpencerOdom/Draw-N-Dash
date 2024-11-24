@@ -1,7 +1,7 @@
 extends Node
 
 # TODO: Make the dissconnected players dissapear
-
+var playerIcons = ["res://Player_Icons/AngryCactus.png", "res://Player_Icons/CoolBro.png", "res://Player_Icons/CoolGirl.png","res://Player_Icons/CowboyCactus.png","res://Player_Icons/FancyPizza.png","res://Player_Icons/Lady.png","res://Player_Icons/Man.png","res://Player_Icons/MrBeach.png","res://Player_Icons/Pizza.png","res://Player_Icons/SaltBae.png"]
 
 func _on_tree_entered() -> void:
 	MultiplayerManager.intstring_1.connect(add_player_to_list)
@@ -34,7 +34,7 @@ func add_player_to_list(olayerID: int, olayername: String) -> void:
 	var olayer = HBoxContainer.new()
 	
 	var icon = TextureRect.new()
-	icon.texture = load("res://icon.svg")
+	icon.texture = load(playerIcons[randi_range(0, 9)])
 	olayer.add_child(icon)
 	
 	var identity = VBoxContainer.new()
