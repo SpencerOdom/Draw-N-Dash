@@ -29,10 +29,6 @@ const PORT: int = 80
 func _ready() -> void:
 		#get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 		print("MultiplayerMangager _ready func called.\n", get_stack())
-		if multiplayer_peer.get_connection_status() == 0:
-				print("Creating a connection.\n", get_stack())
-				multiplayer_peer.create_client(ADDRESS, PORT)
-				multiplayer.multiplayer_peer = multiplayer_peer
 		pass # Replace with function body.
 
 
@@ -68,7 +64,10 @@ func client_connected(_id: int):
 
 
 func to_lobby() -> void:
-	# TODO: Connection should go here.
+	if multiplayer_peer.get_connection_status() == 0:
+		print("Creating a connection.\n", get_stack())
+		multiplayer_peer.create_client(ADDRESS, PORT)
+		multiplayer.multiplayer_peer = multiplayer_peer
 	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	pass
 
