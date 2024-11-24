@@ -8,10 +8,10 @@ signal submit_string
 signal submit_node2d
 
 signal shot_prompt_signal(txt: String)
-signal shot_drawing_signal(img: Node2D)
+signal shot_drawing_signal(img: Dictionary)
 
 signal set_prompt_signal(_txt: String)
-signal set_drawing_signal(_img: Node2D)
+signal set_drawing_signal(_img: Dictionary)
 
 const ADDRESS = "130.157.167.146"
 #const ADDRESS = "130.157.167.94"
@@ -135,7 +135,6 @@ func client_draw_phase(_text: String) -> void:
 	print("Chaning to drawing scene.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/drawing_canvas_old.tscn")
 	await get_tree().create_timer(1).timeout
-	print("wergubbuifqbuofa")
 	emit_signal('set_prompt_signal', _text)
 	pass
 
@@ -155,9 +154,9 @@ func set_user_prompt(_id: int, _prompt: int) -> void:
 # ************************************
 
 
-func send_drawing(_img: Node2D) -> void:
-	print(typeof(_img))
-	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), _img as Node2D)
+func send_drawing(_img: Dictionary) -> void:
+	print("Send an image that is type of: ", typeof(_img))
+	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), _img as Dictionary)
 	pass
 
 
@@ -167,17 +166,23 @@ func submit_drawing() -> void:
 	pass
 
 @rpc("any_peer")
-func client_prompt_phase(_img: Node2D) -> void:
+func client_prompt_phase(_img: Dictionary) -> void: # This parameter will need to be an object
 	print("Chaing to prompt phase.\n", get_stack())
+	print("Recieve an object of type: ", typeof(_img))
+	
+	#var packedscene_instance = _img as PackedScene
+	#print("After converting, the object to a packed scene: ", typeof(packedscene_instance))
+	
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/guessing_Scene.tscn")
-	emit_signal('set_drawing_signal', _img as Node2D)
+	await get_tree().create_timer(1).timeout
+	emit_signal('set_drawing_signal', _img as Dictionary)
 	pass
 
 
 # Server
 
 @rpc("any_peer")
-func set_user_drawing(_id: int, _img: Object) -> void:
+func set_user_drawing(_id: int, _img: Dictionary) -> void:
 	pass
 
 
@@ -213,4 +218,4 @@ func shot_drawing() -> void:
 
 
 # hi
-# ***
+# ****

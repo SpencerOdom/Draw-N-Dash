@@ -1,7 +1,7 @@
 # This is canvas.gd
 extends Node2D
 
-@onready var _lines: Node2D = $Line2D
+@onready var _lines: Line2D = $Line2D
 @onready var pencil_button = get_node("/root/DrawingCanvas/Main_VBoxContainer/MainBody_HBoxContainer/UtilityBar_VBoxContainer/PencilButton")
 @onready var eraser_button = get_node("/root/DrawingCanvas/Main_VBoxContainer/MainBody_HBoxContainer/UtilityBar_VBoxContainer/EraserButton")
 
@@ -95,8 +95,49 @@ func update_music_stats():
 		musicAudioStreamBG.stop()
 
 
-func get_image() -> Node2D:
-	return _lines
+
+
+func serialize_canvas(node: Line2D) -> Dictionary:
+	# Serialize the current node.
+	var data = {}
+	""""
+	data["name"] = node.name
+	data["position"] = node.position
+	data["rotation"] = node.rotation
+	data["scale"] = node.scale
+	data["width"] = node.width
+	data["color"] = node.default_color.to_html()
+	"""
+	data["name"] = node.name
+	data["antialiased"] = node.antialiased
+	data["begin_cap_mode"] = node.begin_cap_mode
+	data["closed"] = node.closed
+	data["default_color"] = node.default_color
+	data["end_cap_mode"] = node.end_cap_mode
+	data["gradient"] = node.gradient
+	data["joint_mode"] = node.joint_mode
+	data["points"] = node.points
+	data["round_precision"] = node.round_precision
+	data["sharp_limit"] = node.sharp_limit
+	data["texture"] = node.texture
+	data["width"] = node.width
+	data["width_curve"] = node.width_curve
+	
+	
+	# Recursively serialize children
+	var children = []
+	for child in node.get_children():
+		if child is Line2D:
+			children.append(serialize_canvas(child)) # Recursively serialize child nodes
+
+	data["children"] = children
+	
+	return data
+
+func get_image() -> Dictionary:
+	return serialize_canvas(_lines)
+
+
 
 
 func _on_clear_button_pressed() -> void:
