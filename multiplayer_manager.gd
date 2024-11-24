@@ -29,6 +29,10 @@ const PORT: int = 80
 func _ready() -> void:
 		#get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 		print("MultiplayerMangager _ready func called.\n", get_stack())
+		if multiplayer_peer.get_connection_status() == 0:
+			print("Creating a connection.\n", get_stack())
+			multiplayer_peer.create_client(ADDRESS, PORT)
+			multiplayer.multiplayer_peer = multiplayer_peer
 		pass # Replace with function body.
 
 
@@ -64,10 +68,6 @@ func client_connected(_id: int):
 
 
 func to_lobby() -> void:
-	if multiplayer_peer.get_connection_status() == 0:
-		print("Creating a connection.\n", get_stack())
-		multiplayer_peer.create_client(ADDRESS, PORT)
-		multiplayer.multiplayer_peer = multiplayer_peer
 	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	pass
 
@@ -156,7 +156,8 @@ func set_user_prompt(_id: int, _prompt: int) -> void:
 
 
 func send_drawing(_img: Node2D) -> void:
-	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), _img)
+	print(typeof(_img))
+	rpc_id(1, "set_user_drawing", multiplayer_peer.get_unique_id(), _img as Node2D)
 	pass
 
 
@@ -169,7 +170,7 @@ func submit_drawing() -> void:
 func client_prompt_phase(_img: Node2D) -> void:
 	print("Chaing to prompt phase.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/guessing_Scene.tscn")
-	emit_signal('set_drawing_signal', _img)
+	emit_signal('set_drawing_signal', _img as Node2D)
 	pass
 
 
