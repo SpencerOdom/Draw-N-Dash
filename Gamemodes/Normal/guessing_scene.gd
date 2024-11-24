@@ -9,11 +9,13 @@ var timer_finished: bool = false
 
 func _on_tree_entered() -> void:
 	MultiplayerManager.submit_string.connect(guessing_scene_send_prompt)
+	MultiplayerManager.set_drawing_signal.connect(guessing_scene_set_drawing)
 	pass # Replace with function body.
 
 
 func _on_tree_exiting() -> void:
 	MultiplayerManager.submit_string.disconnect(guessing_scene_send_prompt)
+	MultiplayerManager.set_drawing_signal.disconnect(guessing_scene_set_drawing)
 	pass # Replace with function body.
 
 
@@ -57,4 +59,9 @@ func _on_timer_timeout() -> void:
 
 func guessing_scene_send_prompt() -> void:
 	MultiplayerManager.send_prompt($LineEdit.text)
+	pass
+
+
+func guessing_scene_set_drawing(_img: Node2D) -> void:
+	add_child(_img)
 	pass
