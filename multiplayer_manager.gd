@@ -116,7 +116,7 @@ func server_start_game() -> void:
 
 
 # ************************************
-# Starting Guessing phase
+# Prompt Phase
 # ************************************
 
 
@@ -130,10 +130,12 @@ func submit_prompt() -> void:
 	emit_signal('submit_string')
 	pass
 
+# TODO: Update
 @rpc("any_peer")
 func client_draw_phase() -> void:
 	print("Chaning to drawing scene.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/drawing_canvas_old.tscn")
+	# Emit to send prompt
 	pass
 
 
@@ -179,13 +181,6 @@ func set_user_drawing(_id: int, _img: Node2D) -> void:
 
 
 # ************************************
-# Prompt Phase
-# ************************************
-
-
-
-
-# ************************************
 # End Phase
 # ************************************
 
@@ -215,4 +210,4 @@ func shot_drawing() -> void:
 
 
 # hi
-#
+# **
