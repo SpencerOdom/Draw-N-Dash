@@ -24,11 +24,11 @@ func _ready() -> void:
 
 
 func _on_tree_entered() -> void:
-	MultiplayerManager.submit_1.connect(staring_prompt_shot_prompt)
+	MultiplayerManager.submit_string.connect(staring_prompt_shot_prompt)
 	pass # Replace with function body.
 
 func _on_tree_exiting() -> void:
-	MultiplayerManager.submit_1.disconnect(staring_prompt_shot_prompt)
+	MultiplayerManager.submit_string.disconnect(staring_prompt_shot_prompt)
 	pass # Replace with function body.
 
 

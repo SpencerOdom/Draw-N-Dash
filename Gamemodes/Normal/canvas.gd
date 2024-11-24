@@ -93,3 +93,7 @@ func update_music_stats():
 			musicAudioStreamBG.play()
 	else:
 		musicAudioStreamBG.stop()
+
+
+func get_image() -> Node2D:
+	return _lines
