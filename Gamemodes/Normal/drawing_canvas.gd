@@ -2,13 +2,13 @@ extends Node
 
 
 func _on_tree_entered() -> void:
-	MultiplayerManager.submit_node2d.connect(drawing_phase_shot_image)
+	MultiplayerManager.submit_dictionary.connect(drawing_phase_shot_image)
 	MultiplayerManager.set_prompt_signal.connect(drawing_phase_set_prompt)
 	pass # Replace with function body.
 
 
 func _on_tree_exiting() -> void:
-	MultiplayerManager.submit_node2d.disconnect(drawing_phase_shot_image)
+	MultiplayerManager.submit_dictionary.disconnect(drawing_phase_shot_image)
 	MultiplayerManager.set_prompt_signal.disconnect(drawing_phase_set_prompt)
 	pass # Replace with function body.
 

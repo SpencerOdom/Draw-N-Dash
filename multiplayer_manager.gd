@@ -2,16 +2,21 @@ extends Node
 
 @onready var multiplayer_peer : ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 
+signal s1
+
 signal intstring_1(_i: int, _s: String)
 
 signal submit_string
-signal submit_node2d
+signal submit_dictionary
 
-signal shot_prompt_signal(txt: String)
-signal shot_drawing_signal(img: Dictionary)
-
+# Prompt and Drawing phase signals
 signal set_prompt_signal(_txt: String)
 signal set_drawing_signal(_img: Dictionary)
+
+# End Phase Signals
+signal shot_cycle_signal(id:int, username:String, txt: String)
+signal shot_prompt_signal(id:int, username:String, txt: String)
+signal shot_drawing_signal(id:int, username:String, img: Dictionary)
 
 const ADDRESS = "130.157.167.146"
 #const ADDRESS = "130.157.167.94"
@@ -29,10 +34,12 @@ const PORT: int = 80
 func _ready() -> void:
 		#get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 		print("MultiplayerMangager _ready func called.\n", get_stack())
-		if multiplayer_peer.get_connection_status() == 0:
-			print("Creating a connection.\n", get_stack())
-			multiplayer_peer.create_client(ADDRESS, PORT)
-			multiplayer.multiplayer_peer = multiplayer_peer
+		
+		#if multiplayer_peer.get_connection_status() == 0:
+		#	print("Creating a connection.\n", get_stack())
+		#	multiplayer_peer.create_client(ADDRESS, PORT)
+		#	multiplayer.multiplayer_peer = multiplayer_peer
+		
 		pass # Replace with function body.
 
 
@@ -56,6 +63,7 @@ func _on_scene_changed():
 @rpc("any_peer")
 func client_connected(_id: int):
 	print(_id, " connected.\n", get_stack())
+	emit_signal('s1')
 	pass
 
 
@@ -67,9 +75,42 @@ func client_connected(_id: int):
 # ************************************
 
 
-func to_lobby() -> void:
+func establish_connection() -> void:
+	
+	if multiplayer_peer.get_connection_status() == 0:
+		print("Creating a connection.\n", get_stack())
+		multiplayer_peer.create_client(ADDRESS, PORT)
+		multiplayer.multiplayer_peer = multiplayer_peer
+
+	pass
+
+
+#@rpc("any_peer")
+#func send_username() -> void:
+#	emit_signal('s1')
+#	pass
+
+
+func join_lobby(username: String) -> void:
+	rpc_id(1, "set_user_name", multiplayer_peer.get_unique_id(), username)
 	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	pass
+
+
+@rpc("any_peer")
+func return_to_lobby() -> void:
+	print("Returning to Lobby menu.\n", get_stack())
+	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
+	pass
+
+
+# Server
+
+@rpc("any_peer")
+func set_user_name(_id: int, _usr: String) -> void:
+	pass
+
+
 
 
 
@@ -134,7 +175,7 @@ func submit_prompt() -> void:
 func client_draw_phase(_text: String) -> void:
 	print("Chaning to drawing scene.\n", get_stack())
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/drawing_canvas_old.tscn")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1).timeout # Why
 	emit_signal('set_prompt_signal', _text)
 	pass
 
@@ -162,11 +203,11 @@ func send_drawing(_img: Dictionary) -> void:
 
 @rpc("any_peer")
 func submit_drawing() -> void:
-	emit_signal('submit_drawing')
+	emit_signal('submit_dictionary')
 	pass
 
 @rpc("any_peer")
-func client_prompt_phase(_img: Dictionary) -> void: # This parameter will need to be an object
+func client_prompt_phase(_img: Dictionary) -> void:
 	print("Chaing to prompt phase.\n", get_stack())
 	print("Recieve an object of type: ", typeof(_img))
 	
@@ -174,9 +215,18 @@ func client_prompt_phase(_img: Dictionary) -> void: # This parameter will need t
 	#print("After converting, the object to a packed scene: ", typeof(packedscene_instance))
 	
 	get_tree().change_scene_to_file("res://Gamemodes/Normal/guessing_Scene.tscn")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1).timeout # Why
 	emit_signal('set_drawing_signal', _img as Dictionary)
 	pass
+
+
+# End phase
+@rpc("any_peer")
+func client_end_phase() -> void:
+	print("Changing scene to the Ending Phase.\n", get_stack())
+	get_tree().change_scene_to_file("res://Final_scenes_gadot/finalscenes/final_scene.tscn")
+	pass
+
 
 
 # Server
@@ -195,27 +245,56 @@ func set_user_drawing(_id: int, _img: Dictionary) -> void:
 # TODO:
 
 func get_next_prompt() -> void:
-	shot_prompt()
+	rpc_id(1, "send_next_prompt")
 	pass
 
 
 func get_next_drawing() -> void:
-	shot_drawing()
+	rpc_id(1, "send_next_drawing")
 	pass
 
 
-func shot_prompt() -> void:
-	emit_signal('shot_prompt_signal', "wiebfousbefobefo")
+func get_next_submition() -> void:
+	rpc_id(1, "send_next_submition")
 	pass
 
 
-func shot_drawing() -> void:
-	var img: Node2D = $Canvas/Line2D
-	emit_signal('shot_drawing_signal', img)
+@rpc("any_peer")
+func shot_cycle(_id: int, _usr: String, _prompt: String) -> void:
+	emit_signal('shot_cycle_signal', _id, _usr, _prompt)
 	pass
 
 
+@rpc("any_peer")
+func shot_prompt(_id: int, _usr: String, _prompt: String) -> void:
+	emit_signal('shot_prompt_signal', _id, _usr, _prompt)
+	pass
+
+
+@rpc("any_peer")
+func shot_drawing(_id: int, _usr: String, _img: Dictionary) -> void:
+	emit_signal('shot_drawing_signal', _id, _usr, _img)
+	pass
+
+
+
+
+# Server
+
+@rpc("any_peer")
+func send_next_submition() -> void:
+	pass
+
+
+@rpc("any_peer")
+func send_next_prompt() -> void:
+	pass
+
+
+@rpc("any_peer")
+func send_next_drawing() -> void:
+	pass
 
 
 # hi
-# ****
+# *****
