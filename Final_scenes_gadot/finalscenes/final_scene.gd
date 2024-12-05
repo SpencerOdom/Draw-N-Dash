@@ -115,11 +115,22 @@ func display_drawing(id:int, username:String, img: Dictionary) -> void:
 	
 	var drawing_container = HBoxContainer.new()
 	
+	#var image_container = VBoxContainer.new()
+	
 	var image = Node2D.new()
 	image.add_child(deserialize_image(img))
 	drawing_container.add_child(image)
+	#image_container.add_child(image)
+	
+	#var spacer = Label.new()
+	#spacer.text = ""
+	#image_container.add_child(spacer)
+	
+	#drawing_container.add_child(image_container)
 	
 	var author_credit_container = VBoxContainer.new()
+	
+	#author_credit_container.alignment = BoxContainer.ALIGNMENT_END
 	
 	var icon = TextureRect.new()
 	icon.texture = load("res://icon.svg")
@@ -133,12 +144,23 @@ func display_drawing(id:int, username:String, img: Dictionary) -> void:
 	id_containter.text = str(id)
 	author_credit_container.add_child(id_containter)
 	
+	
+	var spacer = ColorRect.new()
+	spacer.custom_minimum_size.y = 500
+	spacer.color.a = 0
+	
+	author_credit_container.add_child(spacer)
+	
+	
 	drawing_container.add_child(author_credit_container)
 	
 	
 	
 	$ScrollContainer/VBoxContainer.add_child(drawing_container)  # Add the image (now referencing img) to the scene
-
+	#$ScrollContainer.set_v_scroll($ScrollContainer.get_v_scroll() + 100)
+	#$ScrollContainer/VBoxContainer.custom_minimum_size.y += 1280 # Works! But needs to be 720 instead
+	
+	
 
 
 
