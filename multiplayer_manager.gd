@@ -18,8 +18,8 @@ signal shot_cycle_signal(id:int, username:String, txt: String)
 signal shot_prompt_signal(id:int, username:String, txt: String)
 signal shot_drawing_signal(id:int, username:String, img: Dictionary)
 
-#const ADDRESS = "130.157.167.146"
-const ADDRESS = "130.157.167.94"
+const ADDRESS = "130.157.167.146"
+#const ADDRESS = "130.157.167.94"
 const PORT: int = 80
 #const ADDRESS = "130.157.170.101"
 #const PORT: int = 8101
