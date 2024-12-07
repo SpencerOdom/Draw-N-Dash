@@ -25,6 +25,7 @@ func _on_tree_exiting() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioPlayingStream.play_music_level()
 	print("Lobby _ready.\n", get_stack())
 	
 	# Get player list.

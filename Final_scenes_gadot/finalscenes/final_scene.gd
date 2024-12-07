@@ -7,10 +7,11 @@ var label_text: String = "Image has been updated!"  # The text to display in the
 
 
 func _ready():
+	AudioPlayingStream.play_music_level()
 	# Connect the button's pressed signal
-	if !$VBoxContainer/QuickTextureButton.is_connected("pressed", Callable(self, "_on_quick_texture_button_pressed")):
+	if !$QuickTextureButton.is_connected("pressed", Callable(self, "_on_quick_texture_button_pressed")):
 		print("Final Scene is having to connect button.\n", get_stack())
-		$VBoxContainer/QuickTextureButton.connect("pressed", Callable(self, "_on_quick_texture_button_pressed"))
+		$QuickTextureButton.connect("pressed", Callable(self, "_on_quick_texture_button_pressed"))
 
 
 
@@ -32,8 +33,8 @@ func _on_tree_exiting() -> void:
 
 
 func start_cycle(id:int, username:String, txt: String) -> void:
-	for child in $VBoxContainer/ScrollContainer/VBoxContainer.get_children():
-		$VBoxContainer/ScrollContainer/VBoxContainer.remove_child(child)
+	for child in $ScrollContainer/VBoxContainer.get_children():
+		$ScrollContainer/VBoxContainer.remove_child(child)
 		child.queue_free()  # Properly deletes the child node
 	display_prompt(id, username, txt)
 	pass
@@ -118,7 +119,7 @@ func display_prompt(id:int, username:String, txt: String) -> void:
 	prompt_container.add_child(label)
 	
 	
-	$VBoxContainer/ScrollContainer/VBoxContainer.add_child(prompt_container)
+	$ScrollContainer/VBoxContainer.add_child(prompt_container)
 	pass
 
 
@@ -176,4 +177,4 @@ func display_drawing(id:int, username:String, img: Dictionary) -> void:
 	drawing_container.add_child(author_credit_container)
 	
 	
-	$VBoxContainer/ScrollContainer/VBoxContainer.add_child(drawing_container)  # Add the image (now referencing img) to the scene
+	$ScrollContainer/VBoxContainer.add_child(drawing_container)  # Add the image (now referencing img) to the scene

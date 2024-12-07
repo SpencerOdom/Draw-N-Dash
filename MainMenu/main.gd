@@ -26,3 +26,8 @@ func _on_quick_texture_button_pressed() -> void:
 	#get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	MultiplayerManager.establish_connection()
 	pass # Replace with function body.
+
+
+func _on_ready() -> void:
+	AudioPlayingStream.play_music_level()
+	pass # Replace with function body.

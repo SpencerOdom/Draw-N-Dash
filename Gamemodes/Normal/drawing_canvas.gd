@@ -17,7 +17,7 @@ func _on_tree_exiting() -> void:
 var timer_finished: bool = false
 
 func _ready() -> void:
-	
+	AudioPlayingStream.play_music_level()
 	if !$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.is_connected("timeout", Callable(self, "_on_timer_timeout")):
 		# Reconnect the signal
 		$Main_VBoxContainer/Phrase_MarginContainer/MarginContainer/Timer.connect("timeout", Callable(self, "_on_timer_timeout"))
