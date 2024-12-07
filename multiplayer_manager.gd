@@ -4,7 +4,7 @@ extends Node
 
 signal s1
 
-signal intstring_1(_i: int, _s: String)
+signal intintstring_1(_i1: int, _i2: int, _s: String)
 
 signal submit_string
 signal submit_dictionary
@@ -131,8 +131,8 @@ func call_server_to_start_game() -> void:
 
 
 @rpc("any_peer")
-func append_player_to_lobby_list(_id: int, _user: String) -> void:
-	emit_signal('intstring_1', _id, _user)
+func append_player_to_lobby_list(_id: int, _icon: int, _user: String) -> void:
+	emit_signal('intintstring_1', _id, _icon, _user)
 	pass
 
 
