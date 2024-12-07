@@ -39,44 +39,6 @@ func start_cycle(id:int, username:String, txt: String) -> void:
 	pass
 
 
-
-func display_prompt(id:int, username:String, txt: String) -> void:
-	print("display_prompt\n", get_stack())
-	
-	var prompt_container = HBoxContainer.new()
-	var author_credit_container = VBoxContainer.new()
-	
-	var icon = TextureRect.new()
-	icon.texture = load("res://icon.svg")
-	author_credit_container.add_child(icon)
-	
-	var name_containter = Label.new()
-	name_containter.text = username
-	author_credit_container.add_child(name_containter)
-	
-	var id_containter = Label.new()
-	id_containter.text = str(id)
-	author_credit_container.add_child(id_containter)
-	
-	prompt_container.add_child(author_credit_container)
-	
-	var label = Label.new()
-	label.add_theme_font_size_override("font_size", 35)
-	label.text = txt
-	prompt_container.add_child(label)
-	
-	
-	
-	$ScrollContainer/VBoxContainer.add_child(prompt_container)
-	pass
-
-
-
-
-
-
-
-
 func deserialize_image(serialized_data: Dictionary) -> Line2D:
 	var node = Line2D.new()
 	
@@ -104,70 +66,108 @@ func deserialize_image(serialized_data: Dictionary) -> Line2D:
 	return node
 
 
-
-
-
-
-func display_drawing(id:int, username:String, img: Dictionary) -> void:
+func display_prompt(id:int, username:String, txt: String) -> void:
+	print("display_prompt\n", get_stack())
 	
-	print("display_drawing\n", get_stack())
+	# Load the font resource
+	var custom_font = FontFile.new()
+	custom_font.font_data = load("res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RB.otf")
 	
-	
-	var drawing_container = HBoxContainer.new()
-	
-	#var image_container = VBoxContainer.new()
-	
-	var image = Node2D.new()
-	image.add_child(deserialize_image(img))
-	drawing_container.add_child(image)
-	#image_container.add_child(image)
-	
-	#var spacer = Label.new()
-	#spacer.text = ""
-	#image_container.add_child(spacer)
-	
-	#drawing_container.add_child(image_container)
+	var prompt_container = HBoxContainer.new()
+	prompt_container.add_theme_constant_override("separation", 122)
 	
 	var author_credit_container = VBoxContainer.new()
-	
-	#author_credit_container.alignment = BoxContainer.ALIGNMENT_END
 	
 	var icon = TextureRect.new()
 	icon.texture = load("res://icon.svg")
 	author_credit_container.add_child(icon)
 	
-	var name_containter = Label.new()
-	name_containter.text = username
-	author_credit_container.add_child(name_containter)
 	
-	var id_containter = Label.new()
-	id_containter.text = str(id)
-	author_credit_container.add_child(id_containter)
+	# Adding Username(Label) Theme Overrides
+	var name_container = Label.new()
+	name_container.text = username
+	name_container.add_theme_font_size_override("size", 36)
+	name_container.add_theme_font_override("font", custom_font)
+	name_container.add_theme_color_override("color", Color.BLACK)
+	author_credit_container.add_child(name_container)
+	
+	
+	# Adding ID(Label) Theme Overrides
+	var id_container = Label.new()
+	id_container.text = str(id)
+	id_container.add_theme_font_size_override("size", 36)
+	id_container.add_theme_font_override("font", custom_font)
+	id_container.add_theme_color_override("color", Color.BLACK)
+	author_credit_container.add_child(id_container)
+	
+	
+	#Adding the VBOXContainer to the HBOXContainer
+	prompt_container.add_child(author_credit_container)
+	
+	
+	#Adding prompt(Label) Theme Overrides
+	var label = Label.new()
+	label.text = txt
+	label.add_theme_font_size_override("font_size", 115)
+	label.add_theme_font_override("font", custom_font)
+	label.add_theme_color_override("color", Color.BLACK)
+	prompt_container.add_child(label)
+	
+	
+	$ScrollContainer/VBoxContainer.add_child(prompt_container)
+	pass
+
+
+func display_drawing(id:int, username:String, img: Dictionary) -> void:
+	print("display_drawing\n", get_stack())
+	
+	# Load the font resource
+	var custom_font = FontFile.new()
+	custom_font.font_data = load("res://Fonts/Godot-Fontpack-master/fonts/linux-libertine/LinLibertine_5.3.0_2012_07_02/LinLibertineOTF_5.3.0_2012_07_02/LinLibertine_RB.otf")
+	
+	
+	var drawing_container = HBoxContainer.new()
+	
+	
+	var image = Node2D.new()
+	image.add_child(deserialize_image(img))
+	drawing_container.add_child(image)
+	
+	
+	var author_credit_container = VBoxContainer.new()
+	
+	
+	var icon = TextureRect.new()
+	icon.texture = load("res://icon.svg")
+	author_credit_container.add_child(icon)
+	
+	
+	# Adding Username(Label) Theme Overrides
+	var name_container = Label.new()
+	name_container.text = username
+	name_container.add_theme_font_size_override("size", 36)
+	name_container.add_theme_font_override("font", custom_font)
+	name_container.add_theme_color_override("color", Color.BLACK)
+	author_credit_container.add_child(name_container)
+	
+	
+	# Adding ID(Label) Theme Overrides
+	var id_container = Label.new()
+	id_container.text = str(id)
+	id_container.add_theme_font_size_override("size", 36)
+	id_container.add_theme_font_override("font", custom_font)
+	id_container.add_theme_color_override("color", Color.BLACK)
+	author_credit_container.add_child(id_container)
 	
 	
 	var spacer = ColorRect.new()
 	spacer.custom_minimum_size.y = 500
 	spacer.color.a = 0
 	
-	author_credit_container.add_child(spacer)
 	
+	author_credit_container.add_child(spacer)
 	
 	drawing_container.add_child(author_credit_container)
 	
 	
-	
 	$ScrollContainer/VBoxContainer.add_child(drawing_container)  # Add the image (now referencing img) to the scene
-	#$ScrollContainer.set_v_scroll($ScrollContainer.get_v_scroll() + 100)
-	#$ScrollContainer/VBoxContainer.custom_minimum_size.y += 1280 # Works! But needs to be 720 instead
-	
-	
-
-
-
-
-
-
-
-
-
-#
