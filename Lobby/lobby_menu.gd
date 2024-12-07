@@ -1,14 +1,25 @@
 extends Node
 
 # TODO: Make the dissconnected players dissapear
-var playerIcons = ["res://Player_Icons/AngryCactus.png", "res://Player_Icons/CoolBro.png", "res://Player_Icons/CoolGirl.png","res://Player_Icons/CowboyCactus.png","res://Player_Icons/FancyPizza.png","res://Player_Icons/Lady.png","res://Player_Icons/Man.png","res://Player_Icons/MrBeach.png","res://Player_Icons/Pizza.png","res://Player_Icons/SaltBae.png"]
+var playerIcons = [
+	"res://Player_Icons/AngryCactus.png", 	# 0
+	"res://Player_Icons/CoolBro.png",		# 1
+	"res://Player_Icons/CoolGirl.png",		# 2
+	"res://Player_Icons/CowboyCactus.png",	# 3
+	"res://Player_Icons/FancyPizza.png",		# 4
+	"res://Player_Icons/Lady.png",			# 5
+	"res://Player_Icons/Man.png",			# 6
+	"res://Player_Icons/MrBeach.png",		# 7
+	"res://Player_Icons/Pizza.png",			# 8
+	"res://Player_Icons/SaltBae.png"			# 9
+	]
 
 func _on_tree_entered() -> void:
-	MultiplayerManager.intstring_1.connect(add_player_to_list)
+	MultiplayerManager.intintstring_1.connect(add_player_to_list)
 	pass # Replace with function body.
 
 func _on_tree_exiting() -> void:
-	MultiplayerManager.intstring_1.disconnect(add_player_to_list)
+	MultiplayerManager.intintstring_1.disconnect(add_player_to_list)
 	pass # Replace with function body.
 
 
@@ -28,13 +39,13 @@ func _ready() -> void:
 
 
 # The player ID may be a string and not an int.
-func add_player_to_list(olayerID: int, olayername: String) -> void:
+func add_player_to_list(olayerID: int, olayerICON: int, olayername: String) -> void:
 	print("Adding a player to list.\n", get_stack())
 	
 	var olayer = HBoxContainer.new()
 	
 	var icon = TextureRect.new()
-	icon.texture = load(playerIcons[randi_range(0, 9)])
+	icon.texture = load(playerIcons[olayerICON])
 	olayer.add_child(icon)
 	
 	var identity = VBoxContainer.new()
