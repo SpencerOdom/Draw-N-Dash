@@ -86,18 +86,22 @@ func display_prompt(id:int, username:String, txt: String) -> void:
 	# Adding Username(Label) Theme Overrides
 	var name_container = Label.new()
 	name_container.text = username
-	name_container.add_theme_font_size_override("size", 36)
+	name_container.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name_container.add_theme_font_size_override("font_size", 32)
 	name_container.add_theme_font_override("font", custom_font)
-	name_container.add_theme_color_override("color", Color.BLACK)
+	name_container.add_theme_color_override("font_color", Color.BLACK)
+
+	#Adding to the VBOXContainer
 	author_credit_container.add_child(name_container)
 	
 	
 	# Adding ID(Label) Theme Overrides
 	var id_container = Label.new()
 	id_container.text = str(id)
-	id_container.add_theme_font_size_override("size", 36)
+	id_container.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	id_container.add_theme_font_size_override("font_size", 25)
 	id_container.add_theme_font_override("font", custom_font)
-	id_container.add_theme_color_override("color", Color.BLACK)
+	id_container.add_theme_color_override("font_color", Color(0.499, 0.499, 0.499))
 	author_credit_container.add_child(id_container)
 	
 	
@@ -110,7 +114,7 @@ func display_prompt(id:int, username:String, txt: String) -> void:
 	label.text = txt
 	label.add_theme_font_size_override("font_size", 115)
 	label.add_theme_font_override("font", custom_font)
-	label.add_theme_color_override("color", Color.BLACK)
+	label.add_theme_color_override("font_color", Color.BLACK)
 	prompt_container.add_child(label)
 	
 	
@@ -145,18 +149,20 @@ func display_drawing(id:int, username:String, img: Dictionary) -> void:
 	# Adding Username(Label) Theme Overrides
 	var name_container = Label.new()
 	name_container.text = username
-	name_container.add_theme_font_size_override("size", 36)
+	name_container.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name_container.add_theme_font_size_override("font_size", 32)
 	name_container.add_theme_font_override("font", custom_font)
-	name_container.add_theme_color_override("color", Color.BLACK)
+	name_container.add_theme_color_override("font_color", Color.BLACK)
 	author_credit_container.add_child(name_container)
 	
 	
 	# Adding ID(Label) Theme Overrides
 	var id_container = Label.new()
 	id_container.text = str(id)
-	id_container.add_theme_font_size_override("size", 36)
+	id_container.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	id_container.add_theme_font_size_override("font_size", 25)
 	id_container.add_theme_font_override("font", custom_font)
-	id_container.add_theme_color_override("color", Color.BLACK)
+	id_container.add_theme_color_override("font_color", Color(0.499, 0.499, 0.499))
 	author_credit_container.add_child(id_container)
 	
 	
