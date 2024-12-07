@@ -20,6 +20,7 @@ func _on_tree_exiting() -> void:
 
 
 func _ready():
+	AudioPlayingStream.play_music_level()
 	#$Timer.start()
 	# Disconnect the signal if it's already connected
 	if !$Timer.is_connected("timeout", Callable(self, "_on_timer_timeout")):

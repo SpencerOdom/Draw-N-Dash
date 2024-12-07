@@ -8,6 +8,7 @@ var timer_finished: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioPlayingStream.play_music_level()
 	if !$Timer.is_connected("timeout", Callable(self, "_on_timer_timeout")):
 		# Reconnect the signal
 		$Timer.connect("timeout", Callable(self, "_on_timer_timeout"))
