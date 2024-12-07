@@ -93,6 +93,7 @@ func establish_connection() -> void:
 
 func join_lobby(username: String) -> void:
 	rpc_id(1, "set_user_name", multiplayer_peer.get_unique_id(), username)
+	await get_tree().create_timer(1).timeout # Prevents duplicate names - of self - from appearing in the lobby
 	get_tree().change_scene_to_file("res://Lobby/lobby_menu.tscn")
 	pass
 

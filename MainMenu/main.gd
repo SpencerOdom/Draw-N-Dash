@@ -4,14 +4,6 @@ extends Node
 
 
 
-
-
-
-
-
-
-
-
 func _on_tree_entered() -> void:
 	MultiplayerManager.s1.connect(main_menu_send_username)
 
