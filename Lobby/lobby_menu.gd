@@ -69,12 +69,11 @@ func add_player_to_list(olayerID: int, olayerICON: int, olayername: String) -> v
 	olayer_name.set_custom_minimum_size(layout_name)
 	
 	#Theme Overrides
-	olayer_name.add_theme_color_override("font_color", Color(0, 0.624, 0.941))
 	olayer_name.add_theme_constant_override("outline_size", 25)
 	olayer_name.add_theme_font_override("font", custom_font)
 	olayer_name.add_theme_font_size_override("font_size", 20)
 	olayer_name.add_theme_stylebox_override("normal", empty_stylebox)
-
+	olayer_name.add_theme_color_override("font_color", Color(0, 0.624, 0.941))
 	
 	olayer_name.set_editable(false)
 	identity.add_child(olayer_name)
@@ -90,16 +89,16 @@ func add_player_to_list(olayerID: int, olayerICON: int, olayername: String) -> v
 	olayer_id.set_custom_minimum_size(layout_id)
 	
 	#Theme Overrides
-	olayer_id.add_theme_color_override("font_color", Color(0.692, 0.864, 1))
 	olayer_id.add_theme_font_override("font", custom_font)
 	olayer_id.add_theme_font_size_override("font_size", 20)
 	olayer_id.add_theme_stylebox_override("normal", empty_stylebox)
-	
+	olayer_id.add_theme_color_override("font_color", Color(0.692, 0.864, 1))
+
+
 	olayer_id.set_editable(false)
 	identity.add_child(olayer_id)
 	
 	$HBoxContainer/PlayersInLobby/ScrollContainer/PlayerList.add_child(olayer)
-	
 	pass
 
 
