@@ -149,7 +149,8 @@ func client_start_game() -> void:
 func send_player_list(_id: int) -> void:
 	pass
 
-@rpc("any_peer")
+#@rpc("any_peer")
+@rpc("authority")
 func server_start_game() -> void:
 	pass
 
@@ -243,7 +244,6 @@ func set_user_drawing(_id: int, _img: Dictionary) -> void:
 # End Phase
 # ************************************
 
-# TODO:
 
 func get_next_prompt() -> void:
 	rpc_id(1, "send_next_prompt")
@@ -282,7 +282,7 @@ func shot_drawing(_id: int, _icon: int, _usr: String, _img: Dictionary) -> void:
 
 # Server
 
-@rpc("any_peer")
+@rpc("authority")
 func send_next_submition() -> void:
 	pass
 

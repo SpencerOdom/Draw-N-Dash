@@ -46,6 +46,13 @@ func _on_tree_exiting() -> void:
 
 
 
+
+
+
+
+
+
+
 func start_cycle(id:int, olayer_icon: int, username:String, txt: String) -> void:
 	for child in $ScrollContainer/VBoxContainer.get_children():
 		$ScrollContainer/VBoxContainer.remove_child(child)
@@ -79,6 +86,11 @@ func deserialize_image(serialized_data: Dictionary) -> Line2D:
 		node.add_child(child_node)
 
 	return node
+
+
+
+
+
 
 
 func display_prompt(id:int, olayer_icon: int, username:String, txt: String) -> void:
@@ -135,6 +147,10 @@ func display_prompt(id:int, olayer_icon: int, username:String, txt: String) -> v
 	
 	$ScrollContainer/VBoxContainer.add_child(prompt_container)
 	pass
+
+
+
+
 
 
 func display_drawing(id:int, olayer_icon:int, username:String, img: Dictionary) -> void:
