@@ -1,5 +1,19 @@
 extends Node2D
 
+# This will repeat, so it should be moved into multiplayer manager.
+var playerIcons = [
+	"res://Player_Icons/AngryCactus.png", 	# 0
+	"res://Player_Icons/CoolBro.png",		# 1
+	"res://Player_Icons/CoolGirl.png",		# 2
+	"res://Player_Icons/CowboyCactus.png",	# 3
+	"res://Player_Icons/FancyPizza.png",		# 4
+	"res://Player_Icons/Lady.png",			# 5
+	"res://Player_Icons/Man.png",			# 6
+	"res://Player_Icons/MrBeach.png",		# 7
+	"res://Player_Icons/Pizza.png",			# 8
+	"res://Player_Icons/SaltBae.png"			# 9
+]
+
 # Placeholder variables
 var display_image_path: String = "res://Mainmenuimage/menuupdate.jpg"
 var desired_size: Vector2 = Vector2(500, 500)  # Desired width and height in pixels
@@ -32,11 +46,11 @@ func _on_tree_exiting() -> void:
 
 
 
-func start_cycle(id:int, username:String, txt: String) -> void:
+func start_cycle(id:int, olayer_icon: int, username:String, txt: String) -> void:
 	for child in $ScrollContainer/VBoxContainer.get_children():
 		$ScrollContainer/VBoxContainer.remove_child(child)
 		child.queue_free()  # Properly deletes the child node
-	display_prompt(id, username, txt)
+	display_prompt(id, olayer_icon, username, txt)
 	pass
 
 
@@ -67,7 +81,7 @@ func deserialize_image(serialized_data: Dictionary) -> Line2D:
 	return node
 
 
-func display_prompt(id:int, username:String, txt: String) -> void:
+func display_prompt(id:int, olayer_icon: int, username:String, txt: String) -> void:
 	print("display_prompt\n", get_stack())
 	
 	# Load the font resource
@@ -80,7 +94,7 @@ func display_prompt(id:int, username:String, txt: String) -> void:
 	var author_credit_container = VBoxContainer.new()
 	
 	var icon = TextureRect.new()
-	icon.texture = load("res://icon.svg")
+	icon.texture = load(playerIcons[olayer_icon])
 	author_credit_container.add_child(icon)
 	
 	
@@ -123,7 +137,7 @@ func display_prompt(id:int, username:String, txt: String) -> void:
 	pass
 
 
-func display_drawing(id:int, username:String, img: Dictionary) -> void:
+func display_drawing(id:int, olayer_icon:int, username:String, img: Dictionary) -> void:
 	print("display_drawing\n", get_stack())
 	
 	# Load the font resource
@@ -143,7 +157,7 @@ func display_drawing(id:int, username:String, img: Dictionary) -> void:
 	
 	
 	var icon = TextureRect.new()
-	icon.texture = load("res://icon.svg")
+	icon.texture = load(playerIcons[olayer_icon])
 	author_credit_container.add_child(icon)
 	
 	

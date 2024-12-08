@@ -14,9 +14,9 @@ signal set_prompt_signal(_txt: String)
 signal set_drawing_signal(_img: Dictionary)
 
 # End Phase Signals
-signal shot_cycle_signal(id:int, username:String, txt: String)
-signal shot_prompt_signal(id:int, username:String, txt: String)
-signal shot_drawing_signal(id:int, username:String, img: Dictionary)
+signal shot_cycle_signal(id:int, icon:int, username:String, txt: String)
+signal shot_prompt_signal(id:int, icon:int, username:String, txt: String)
+signal shot_drawing_signal(id:int, icon:int, username:String, img: Dictionary)
 
 const ADDRESS = "130.157.167.146"
 #const ADDRESS = "130.157.167.94"
@@ -261,20 +261,20 @@ func get_next_submition() -> void:
 
 
 @rpc("any_peer")
-func shot_cycle(_id: int, _usr: String, _prompt: String) -> void:
-	emit_signal('shot_cycle_signal', _id, _usr, _prompt)
+func shot_cycle(_id: int, _icon: int, _usr: String, _prompt: String) -> void:
+	emit_signal('shot_cycle_signal', _id, _icon, _usr, _prompt)
 	pass
 
 
 @rpc("any_peer")
-func shot_prompt(_id: int, _usr: String, _prompt: String) -> void:
-	emit_signal('shot_prompt_signal', _id, _usr, _prompt)
+func shot_prompt(_id: int, _icon: int, _usr: String, _prompt: String) -> void:
+	emit_signal('shot_prompt_signal', _id, _icon, _usr, _prompt)
 	pass
 
 
 @rpc("any_peer")
-func shot_drawing(_id: int, _usr: String, _img: Dictionary) -> void:
-	emit_signal('shot_drawing_signal', _id, _usr, _img)
+func shot_drawing(_id: int, _icon: int, _usr: String, _img: Dictionary) -> void:
+	emit_signal('shot_drawing_signal', _id, _icon, _usr, _img)
 	pass
 
 
